@@ -79,7 +79,7 @@ export default function Login() {
           },
           onError: (ctx) => {
             // console.log("error in sign in:  ", ctx);
-            
+
             setLoading(false);
 
             // console.log(ctx);
@@ -88,18 +88,13 @@ export default function Login() {
               "EMAIL_IS_NOT_VERIFIED_CHECK_YOUR_EMAIL_FOR_A_VERIFICATION_LINK"
             ) {
               showToast.error(glossary.login.errors.unverified);
-            } 
-            
-            else if(ctx.error.code === "FAILED_TO_CREATE_SESSION"){
+            } else if (ctx.error.code === "FAILED_TO_CREATE_SESSION") {
               showToast.error(glossary.signup.toasts.signupError.title, {
                 description: glossary.signup.toasts.signupError.sessionFailure,
               });
-
-            }
-            else {
+            } else {
               showToast.error(glossary.login.errors.invalid);
             }
-            
 
             const errorMessage = getErrorMessage(ctx);
             // Handle error appropriately - you might want to set this in state
@@ -144,13 +139,13 @@ export default function Login() {
     //       src={Logo}
     //       alt=""
     //     />
-    //   <NavLink 
+    //   <NavLink
     //   to={"/"}
     //   className="absolute rounded-lg px-1 border-2  hover:opacity-80 transition-opacity  border-[#4D5761] top-12 -left-[120%] ">
     //       <Icon name="back-arrow" size="sm"/>
     //     </NavLink>
     //   </div>
-  
+
     //     <h2 className="my-5 z-10">{glossary.login.title}</h2>
 
     //     <Form

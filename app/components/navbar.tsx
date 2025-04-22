@@ -12,8 +12,8 @@ import { NavbarElements } from "~/lib/contstants";
 import { Link } from "@remix-run/react";
 import { canViewElement } from "~/lib/check-permission";
 import LoadingOverlay from "./loading-overlay";
-import DashboardNav from "./DashboardNav";
 import Footer from "./footer";
+import DashboardNav from "./dashboardNav";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -102,7 +102,6 @@ const Navbar = () => {
         >
           <DisplayedNavList />
         </div>
-        <AuthActions />
 
         <div className="md:hidden  mr-auto">
           <Icon
