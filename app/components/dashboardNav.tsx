@@ -72,12 +72,34 @@ export default function dashboardNav() {
     );
   // Navigation menu items data
   const menuItems = [
-    { id: 1, label: "الرئيسة", hasDropdown: false },
-    { id: 2, label: "يانعة", hasDropdown: true },
-    { id: 3, label: "أهداف البرنامج", hasDropdown: true },
-    { id: 4, label: "المسارات", hasDropdown: true },
-    { id: 5, label: "مركز المعرفة", hasDropdown: true },
-    { id: 6, label: "تواصل معنا", hasDropdown: true },
+    { id: 1, label: "الرئيسة", path: "/", hasDropdown: false },
+    {
+      id: 2,
+      label: "حسابي",
+      path: "/dashboard/trainer/trainerProfile",
+      hasDropdown: false,
+    },
+    {
+      id: 5,
+      label: "مركز المعرفة",
+      path: "/dashboard/infoCenter",
+      hasDropdown: false,
+    },
+    {
+      id: 2,
+      label: "يانعة",
+      path: "/#about",
+      hasDropdown: true,
+    },
+    {
+      id: 3,
+      label: "أهداف البرنامج",
+      path: "/#goals",
+      hasDropdown: true,
+    },
+
+    { id: 4, label: "المسارات", path: "/#paths", hasDropdown: true },
+    { id: 6, label: "تواصل معنا" },
   ];
 
   return (
@@ -97,13 +119,12 @@ export default function dashboardNav() {
               src={group4}
             /> */}
           </div>
-
           <NavigationMenu dir="rtl" className="max-w-none">
             <NavigationMenuList className="flex items-center gap-6">
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.id}>
                   {item.hasDropdown ? (
-                    <NavigationMenuTrigger className="px-0 py-3">
+                    <NavigationMenuTrigger className="px-0 py-3 hover:none hover:bg-transparent [&_svg]:hover:rotate-0">
                       <div className="flex items-center justify-center gap-2">
                         <span className="mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-gray-600 text-base text-left tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
                           {item.label}
@@ -113,9 +134,12 @@ export default function dashboardNav() {
                   ) : (
                     <div className="px-0 py-1">
                       <div className="flex items-center justify-center gap-2">
-                        <span className="mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-gray-600 text-base text-left tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
+                        <button
+                          onClick={() => item.path && navigate(`${item.path}`)}
+                          className="mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-gray-600 text-base text-left tracking-[0] leading-6 whitespace-nowrap [direction:rtl]"
+                        >
                           {item.label}
-                        </span>
+                        </button>
                       </div>
                     </div>
                   )}

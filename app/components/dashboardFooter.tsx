@@ -37,7 +37,7 @@ const DashboardFooter = (): JSX.Element => {
   ];
 
   return (
-    <div className="w-full mt-[344px]">
+    <div>
       <div className="h-[461px]">
         <div className="relative w-full h-[461px]">
           <footer

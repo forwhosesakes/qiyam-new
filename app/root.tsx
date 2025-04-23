@@ -123,7 +123,7 @@ export default function App() {
 
   return (
     <>
-      {showNavbar && <Navbar/>}
+      {showNavbar && <Navbar />}
 
       <Outlet />
 
