@@ -1,0 +1,1 @@
+export { knowledgeCenter } from "./knowledgeCenter";
