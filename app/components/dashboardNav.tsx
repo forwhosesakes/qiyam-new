@@ -72,12 +72,7 @@ export default function dashboardNav() {
     );
   // Navigation menu items data
   const menuItems = [
-    {
-      id: 2,
-      label: "المسرف",
-      path: "/dashboard/supervisor/trainerProfile",
-      hasDropdown: true,
-    },
+ 
     { id: 7, label: "تواصل معنا" },
     {
       id: 6,

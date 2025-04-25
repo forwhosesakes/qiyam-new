@@ -3,12 +3,60 @@ import { MoreVerticalIcon } from "lucide-react";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { ArrowDownToLine } from "lucide-react";
+import series11 from "../programStatistics/assets/series-1-1.svg";
+import series12 from "../programStatistics/assets/series-1-2.svg";
+
+import series13 from "../programStatistics/assets/series-1-3.svg";
+
+import series1 from "../programStatistics/assets/series-1.svg";
+import series2 from "../programStatistics/assets/series-2.svg";
+import series3 from "../programStatistics/assets/series-3.svg";
+
+import series4 from "../programStatistics/assets/series-4.svg";
+import series5 from "../programStatistics/assets/series-5.svg";
+import series6 from "../programStatistics/assets/series-6.svg";
+
+import line from "../programStatistics/assets/line.svg";
+import arrowDown from "../programStatistics/assets/chevron-down.png";
+
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function Card({ className, ...props }: CardProps) {
+  return (
+    <div
+      className={cn(
+        "rounded-lg border border-border bg-card text-card-foreground shadow-sm",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function CardContent({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return <div className={cn("p-6", className)} {...props} />;
+}
+// function cn(...inputs: ClassValue[]) {
+//   return twMerge(clsx(inputs));
+// }
+
 export const ProgramStatistics = (): JSX.Element => {
   // Data for the cards to enable mapping
+
+  const tabsData = [
+    { id: "trainer-stats", label: "إحصاءات المدربة" },
+    { id: "statistics", label: "الإحصاءات" },
+    { id: "areas", label: "المناطق", selected: true },
+    { id: "skills", label: "المهارات" },
+  ];
   const statsData = [
     {
       id: 1,
@@ -158,6 +206,102 @@ export const ProgramStatistics = (): JSX.Element => {
   return (
     <main className="flex flex-col w-full max-w-[1216px] mx-auto gap-9">
       {/* Stats Section */}
+      <div className="flex flex-col max-w-screen-xl w-full items-end gap-8 px-8 py-0">
+        <div className="flex flex-col items-end gap-8 relative self-stretch w-full">
+          <div className="flex flex-col max-w-screen-md w-[546px] items-end gap-5">
+            <h1 className="self-stretch mt-[-1.00px] font-display-md-semibold font-bold text-[#181d27] text-[36px] tracking-[-0.72px] leading-[44px] [direction:rtl]">
+              إحصاءات البرنامج
+            </h1>
+
+            <p className="self-stretch  font-normal text-[#535861] text-xl leading-[30px] [direction:rtl]">
+              بيانات المناطق والمدراس والإدرات
+            </p>
+
+            <div className="flex flex-col items-end justify-center gap-4 self-stretch w-full">
+              <Card className="self-stretch w-full border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic rounded-lg overflow-hidden p-0">
+                <CardContent className="p-0">
+                  <div className="flex items-start justify-end w-full">
+                    {tabsData.map((tab, index) => (
+                      <div
+                        key={tab.id}
+                        className={`flex min-h-10 items-center justify-center gap-2 px-4 py-2 flex-1 grow 
+                        ${
+                          index < tabsData.length - 1
+                            ? "border-r border-[#d5d6d9]"
+                            : ""
+                        }
+                        ${tab.selected ? "bg-neutral-50" : "bg-white"}`}
+                      >
+                        {tab.selected && (
+                          <div className="relative w-2.5 h-2.5">
+                            <div className="relative w-2 h-2 top-px left-px bg-[#17b169] rounded" />
+                          </div>
+                        )}
+                        <div className="relative w-fit  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                          {tab.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center gap-6 [direction:rtl] md:flex-row md:justify-center">
+            {/* المنطقة (Area) */}
+            <div className="flex flex-col w-80">
+              <div className="mb-2 text-start text-sm text-gray-500">
+                المنطقة
+              </div>
+              <div className="relative">
+                <select className="appearance-none bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
+                  <option className="text-[#717680] ">الكل</option>
+                </select>
+                <img
+                  src={arrowDown}
+                  alt="Arrow Down"
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ml-1"
+                />
+              </div>
+            </div>
+
+            {/* إدارة التعليم (Education Management) */}
+            <div className="flex flex-col w-80">
+              <div className="mb-2 text-start text-sm text-gray-500">
+                إدارة التعليم
+              </div>
+              <div className="relative">
+                <select className="appearance-none bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
+                  <option className="text-[#717680] ">الكل</option>
+                </select>
+                <img
+                  src={arrowDown}
+                  alt="Arrow Down"
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ml-1"
+                />
+              </div>
+            </div>
+
+            {/* المدرسة (School) */}
+            <div className="flex flex-col w-80">
+              <div className="mb-2 text-start text-sm text-gray-500">
+                المدرسة
+              </div>
+              <div className="relative">
+                <select className="appearance-none bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
+                  <option className="text-[#717680] ">الكل</option>
+                </select>
+                <img
+                  src={arrowDown}
+                  alt="Arrow Down"
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ml-1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="flex items-center gap-[27px] relative self-stretch w-full flex-[0_0_auto]">
         {statsData.map((stat) => (
           <div
@@ -172,13 +316,13 @@ export const ProgramStatistics = (): JSX.Element => {
               />
 
               <div className="flex flex-col items-end gap-6 relative flex-1 grow">
-                <div className="self-stretch mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-base leading-6 relative text-[#181d27] tracking-[0] [direction:rtl]">
+                <div className="self-stretch mt-[-1.00px]  font-bold text-base leading-6 relative text-[#181d27] tracking-[0] [direction:rtl]">
                   {stat.title}
                 </div>
 
                 <div className="flex flex-col items-start gap-2 relative self-stretch w-full flex-[0_0_auto]">
                   <div className="flex items-end gap-4 relative self-stretch w-full flex-[0_0_auto]">
-                    <div className="relative flex-1 mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#181d27] text-5xl text-right tracking-[0] leading-[38px]">
+                    <div className="relative flex-1 mt-[-1.00px]  font-bold text-[#181d27] text-5xl text-right tracking-[0] leading-[38px]">
                       {stat.count}
                     </div>
                   </div>
@@ -207,7 +351,7 @@ export const ProgramStatistics = (): JSX.Element => {
           <div className="flex flex-col items-start gap-5 w-full">
             <div className="flex items-start gap-4 w-full">
               <div className="flex flex-col items-end justify-center gap-0.5 flex-1 w-full">
-                <h2 className="self-stretch mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
+                <h2 className="self-stretch mt-[-1.00px]  font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
                   إدارات التعليم
                 </h2>
               </div>
@@ -224,7 +368,7 @@ export const ProgramStatistics = (): JSX.Element => {
                     </div>
 
                     <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
-                      <div className="self-stretch mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#181d27] text-base leading-6 tracking-[0] [direction:rtl]">
+                      <div className="self-stretch mt-[-1.00px]  font-bold text-[#181d27] text-base leading-6 tracking-[0] [direction:rtl]">
                         إدارات التعليم
                       </div>
                     </div>
@@ -238,32 +382,33 @@ export const ProgramStatistics = (): JSX.Element => {
                         <img
                           className="w-[95px] h-[85px] left-[100px] absolute top-0"
                           alt="Series"
-                          src="/series-1-1.svg"
+                          // src="/series-1-1.svg"
+                          src={series11}
                         />
                         <img
                           className="absolute w-[131px] h-[131px] top-[69px] left-[69px]"
                           alt="Series"
-                          src="/series-2.svg"
+                          src={series2}
                         />
                         <img
                           className="absolute w-[65px] h-[66px] top-[129px] left-[19px]"
                           alt="Series"
-                          src="/series-3.svg"
+                          src={series3}
                         />
                         <img
                           className="absolute w-[60px] h-[71px] top-[87px] left-0"
                           alt="Series"
-                          src="/series-4.svg"
+                          src={series4}
                         />
                         <img
                           className="absolute w-[84px] h-[89px] top-[5px] left-px"
                           alt="Series"
-                          src="/series-5.svg"
+                          src={series5}
                         />
                         <img
                           className="absolute w-8 h-[53px] top-0 left-[68px]"
                           alt="Series"
-                          src="/series-6.svg"
+                          src={series6}
                         />
                       </div>
                     </div>
@@ -275,7 +420,7 @@ export const ProgramStatistics = (): JSX.Element => {
                         key={index}
                         className="flex items-start justify-end gap-2 w-full"
                       >
-                        <div className="w-fit mt-[-1.00px] [font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-[#535861] text-sm text-left leading-5 whitespace-nowrap tracking-[0] [direction:rtl]">
+                        <div className="w-fit mt-[-1.00px]   font-normal text-[#535861] text-sm text-left leading-5 whitespace-nowrap tracking-[0] [direction:rtl]">
                           {department.name}
                         </div>
                         <div className="inline-flex items-start gap-2.5 pt-1.5 pb-0 px-0">
@@ -298,7 +443,7 @@ export const ProgramStatistics = (): JSX.Element => {
           <div className="items-start gap-5 flex flex-col w-full">
             <div className="items-start gap-4 w-full flex">
               <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
-                <h2 className="self-stretch mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
+                <h2 className="self-stretch mt-[-1.00px]  font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
                   التقارير
                 </h2>
               </div>
@@ -320,7 +465,8 @@ export const ProgramStatistics = (): JSX.Element => {
                             <img
                               className="absolute w-[146px] h-[88px] top-0 left-0"
                               alt="Line"
-                              src="/line.svg"
+                              // src="/line.svg"
+                              src={line}
                             />
                           </div>
                         </div>
@@ -331,8 +477,10 @@ export const ProgramStatistics = (): JSX.Element => {
                               : metric.unit === "ساعة تطوعية"
                               ? "left-10"
                               : "left-[59px]"
-                          } [font-family:'Ping_AR_+_LT-Medium',Helvetica] font-medium text-[#535861] text-xs text-center tracking-[0] leading-[18px] whitespace-nowrap ${
-                            metric.unit !== "Active users" ? "[direction:rtl]" : ""
+                          } font-medium text-[#535861] text-xs text-center tracking-[0] leading-[18px] whitespace-nowrap ${
+                            metric.unit !== "Active users"
+                              ? "[direction:rtl]"
+                              : ""
                           }`}
                         >
                           {metric.unit}
@@ -346,7 +494,7 @@ export const ProgramStatistics = (): JSX.Element => {
                               : metric.value === "240"
                               ? "left-[50px]"
                               : "left-[60px]"
-                          } font-display-xs-semibold font-[number:var(--display-xs-semibold-font-weight)] text-[#181d27] text-[length:var(--display-xs-semibold-font-size)] text-center tracking-[var(--display-xs-semibold-letter-spacing)] leading-[var(--display-xs-semibold-line-height)] whitespace-nowrap [font-style:var(--display-xs-semibold-font-style)]`}
+                          } font-bold  text-[#181d27]  text-center  `}
                         >
                           {metric.value}
                         </div>
@@ -362,7 +510,7 @@ export const ProgramStatistics = (): JSX.Element => {
                           : metric.description === "الساعات التطوعية المحققة"
                           ? "w-40"
                           : "self-stretch"
-                      } [font-family:'Ping_AR_+_LT-Medium',Helvetica] font-medium text-[#181d27] text-sm text-center tracking-[0] leading-[14.2px] [direction:rtl]`}
+                      } font-medium text-[#181d27] text-sm text-center tracking-[0] leading-[14.2px] [direction:rtl]`}
                     >
                       {metric.description}
                     </div>
@@ -380,13 +528,13 @@ export const ProgramStatistics = (): JSX.Element => {
           <div className="flex items-start gap-4 w-full">
             <div className="w-[287px] rounded-lg overflow-hidden border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic">
               <div className="w-full p-0 h-auto bg-transparent flex">
-                <button className="flex-1 min-h-10 px-4 py-2 rounded-none bg-white border-r border-[#d5d6d9] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-sm text-left leading-5 whitespace-nowrap [direction:rtl]">
+                <button className="flex-1 min-h-10 px-4 py-2 rounded-none bg-white border-r border-[#d5d6d9]  font-bold text-[#414651] text-sm text-left leading-5 whitespace-nowrap [direction:rtl]">
                   المدارس
                 </button>
-                <button className="flex-1 min-h-10 px-4 py-2 rounded-none bg-white border-r border-[#d5d6d9] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-sm text-left leading-5 whitespace-nowrap [direction:rtl]">
+                <button className="flex-1 min-h-10 px-4 py-2 rounded-none bg-white border-r border-[#d5d6d9]  font-bold text-[#414651] text-sm text-left leading-5 whitespace-nowrap [direction:rtl]">
                   الإدارات
                 </button>
-                <button className="flex-1 min-h-10 px-4 py-2 rounded-none bg-neutral-50 border-r border-[#d5d6d9] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-sm text-left leading-5 whitespace-nowrap [direction:rtl]">
+                <button className="flex-1 min-h-10 px-4 py-2 rounded-none bg-neutral-50 border-r border-[#d5d6d9]  font-bold text-[#414651] text-sm text-left leading-5 whitespace-nowrap [direction:rtl]">
                   <div className="relative w-2.5 h-2.5 ml-[-0.17px]">
                     <div className="relative w-2 h-2 top-px left-px bg-[#17b169] rounded" />
                   </div>
@@ -396,7 +544,7 @@ export const ProgramStatistics = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
-              <h2 className="self-stretch [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#181d27] text-lg leading-7 tracking-[0] [direction:rtl]">
+              <h2 className="self-stretch  font-bold text-[#181d27] text-lg leading-7 tracking-[0] [direction:rtl]">
                 المناطق
               </h2>
             </div>
@@ -424,7 +572,7 @@ export const ProgramStatistics = (): JSX.Element => {
                   {regions.map((region, index) => (
                     <div
                       key={index}
-                      className="[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#535861] text-xs text-center tracking-[0] leading-[18px] whitespace-nowrap [direction:rtl]"
+                      className=" font-bold text-[#535861] text-xs text-center tracking-[0] leading-[18px] whitespace-nowrap [direction:rtl]"
                     >
                       {region}
                     </div>
@@ -435,7 +583,10 @@ export const ProgramStatistics = (): JSX.Element => {
                 <div className="absolute w-[1072px] h-44 top-[25px] left-12">
                   <div className="flex w-full h-44 items-end justify-between px-5 py-0">
                     {chartBars.map((bar, index) => (
-                      <div key={index} className="relative self-stretch w-[42px]">
+                      <div
+                        key={index}
+                        className="relative self-stretch w-[42px]"
+                      >
                         <img
                           className={`absolute ${bar.width} ${bar.height} ${bar.top} left-0`}
                           alt="Chart bar"

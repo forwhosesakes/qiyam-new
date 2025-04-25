@@ -169,7 +169,7 @@ const achievements = () => {
           </CardContent>
         </Card>
       </div>
-      <Card className="flex flex-col w-full h-auto items-start gap-[19px] p-3 bg-white rounded-xl border border-solid border-[#d5d7da]">
+      <Card className="flex flex-col w-full h-auto items-start gap-[19px] p-3 bg-white rounded-xl border border-solid border-[#d5d7da] [direction:rtl]">
         <div className="flex w-full flex-row-reverse items-center justify-between px-2 py-1 bg-[#199491] rounded-lg">
           <ChevronLeftIcon className="w-5 h-5 text-white -rotate-90" />
           <div className="flex items-end justify-around relative">

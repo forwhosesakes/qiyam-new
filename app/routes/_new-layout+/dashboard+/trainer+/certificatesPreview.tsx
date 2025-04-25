@@ -86,7 +86,7 @@ const Label = React.forwardRef<
   <label
     ref={ref}
     className={cn(
-      "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+      "text-sm font-medium leading-none  ",
       className
     )}
     {...props}
@@ -141,7 +141,7 @@ const certificatesPreview = () => {
         </div>
 
         {/* Form Fields */}
-        <div className="flex items-start justify-end gap-[18px] w-full">
+        <div className="flex items-start justify-start gap-[18px] w-full [direction:rtl] ">
           {formFields.map((field) => (
             <div
               key={field.id}
@@ -149,23 +149,24 @@ const certificatesPreview = () => {
             >
               <div className="flex flex-col items-end gap-1.5 w-full">
                 <div className="inline-flex items-start gap-0.5">
-                  <Label
-                    htmlFor={field.id}
-                    className="mt-[-1.00px] [font-family:'Ping_AR_+_LT-Medium',Helvetica] font-medium text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]"
-                  >
-                    {field.label}
-                  </Label>
-                  {field.required && (
+                {field.required && (
                     <span className="mt-[-1.00px] text-x-1c-8-1ac text-sm font-medium">
                       *
                     </span>
                   )}
+                  <Label
+                    htmlFor={field.id}
+                    className="mt-[-1.00px] font-medium text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]"
+                  >
+                    {field.label}
+                  </Label>
+      
                 </div>
                 <Input
                   id={field.id}
                   readOnly
                   defaultValue={field.value}
-                  className="flex items-center justify-end gap-2 px-3.5 py-2.5 w-full bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs [font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
+                  className="flex items-center justify-start gap-2 px-3.5 py-2.5 w-full bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs   font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
                 />
               </div>
             </div>
@@ -173,8 +174,11 @@ const certificatesPreview = () => {
         </div>
 
         {/* File Upload Card */}
-        <Card className="w-full rounded-xl border border-[#e9e9eb] bg-white rtl">
+        <Card className="w-full rounded-xl border border-[#e9e9eb] bg-white [direction:rtl] ">
           <CardContent className="flex items-center justify-between gap-3 p-4">
+
+         
+
             <div className="relative h-10 w-10">
               <div className="relative left-1 h-10 w-8">
                 <img className="h-10 w-8" alt="PDF file" src="/page.svg" />
@@ -183,6 +187,7 @@ const certificatesPreview = () => {
                 </div>
               </div>
             </div>
+      
             <div className="flex flex-1 flex-col gap-1">
               <div className="text-sm font-medium text-[#414651]">
                 شهادة خالد

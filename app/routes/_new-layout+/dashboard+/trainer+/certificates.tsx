@@ -4,7 +4,9 @@ import { PlusIcon } from "lucide-react";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import CertificatesPreview from "./certificatesPreview";
-import certificate01 from "../../../../assets/images/new-design/certificate-01.png"
+import certificate01 from "../../../../assets/images/new-design/certificate-01.png";
+import filetypeicon from "../../../../assets/images/new-design/Filetypeicon.png";
+import downloadcloud from "../../../../assets/images/new-design/download-cloud-02.png";
 // Utils function
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -131,7 +133,7 @@ const Certificates = () => {
     // Show CertificatesPreview when submitted is true
     <CertificatesPreview />
   ) : (
-    <Card className="flex flex-col w-full items-start gap-[46px] p-[18px] bg-white rounded-xl border border-solid border-[#d5d6d9]">
+    <Card className="flex flex-col w-full items-start gap-[46px] p-[18px] bg-white rounded-xl border border-solid border-[#d5d6d9]   [direction:rtl]">
       <div className="flex flex-col gap-5 w-full">
         {/* New Certificate Button */}
         <Button
@@ -146,42 +148,46 @@ const Certificates = () => {
 
         {/* Form Fields */}
         {[...Array(6)].map((_, index) => (
-          <div
-            key={index}
-            className="flex items-start justify-end gap-[18px] w-full"
-          >
-            {formFields.map((field) => (
-              <div
-                key={field.id}
-                className={`flex flex-col items-center gap-1.5 self-stretch ${
-                  field.width || "flex-1"
-                }`}
-              >
-                <div className="flex flex-col  gap-1.5 self-stretch w-full">
-                  <div className="inline-flex items-start gap-0.5">
-                   
-                  {field.required && (
-                      <span className="mt-[-1.00px] text-x-1c-8-1ac text-[#1C81AC]">*</span>
-                    )} <Label
-                      htmlFor={field.id}
-                      className="mt-[-1.00px] font-medium text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]"
-                    >
-                      {field.label}
-                    </Label>
-                 
-                  </div>
-                  <div className="flex items-center justify-end gap-2 px-3.5 py-2.5 w-full bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs">
-                    <div className="flex items-center justify-end gap-2 flex-1">
-                      <Input
-                        id={field.id}
-                        defaultValue={field.value}
-                        className="border-none shadow-none p-0 h-auto mt-[-1.00px] font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
-                      />
+          <div>
+            <div
+              key={index}
+              className="flex items-start justify-end gap-[18px] w-full"
+            >
+              {formFields.map((field) => (
+                <div
+                  key={field.id}
+                  className={`flex flex-col items-center gap-1.5 self-stretch ${
+                    field.width || "flex-1"
+                  }`}
+                >
+                  <div className="flex flex-col  gap-1.5 self-stretch w-full">
+                    <div className="inline-flex items-start gap-0.5">
+                      {field.required && (
+                        <span className="mt-[-1.00px] text-x-1c-8-1ac text-[#1C81AC]">
+                          *
+                        </span>
+                      )}{" "}
+                      <Label
+                        htmlFor={field.id}
+                        className="mt-[-1.00px] font-medium text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]"
+                      >
+                        {field.label}
+                      </Label>
+                    </div>
+                    <div className="flex items-center justify-end gap-2 px-3.5 py-2.5 w-full bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs">
+                      <div className="flex items-center justify-end gap-2 flex-1">
+                        <Input
+                          id={field.id}
+                          defaultValue={field.value}
+                          className="border-none shadow-none p-0 h-auto mt-[-1.00px] font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
           </div>
         ))}
       </div>
@@ -192,13 +198,8 @@ const Certificates = () => {
         onClick={handleSetSubmitted} // Call the handler to update the state
       >
         <span className="flex items-center justify-center gap-2">
-
           تصدير الشهادات
-          <img
-            src={certificate01}
-            alt="Export icon"
-            className="w-5 h-5"
-          />
+          <img src={certificate01} alt="Export icon" className="w-5 h-5" />
         </span>
       </Button>
     </Card>

@@ -93,18 +93,8 @@ const ManageData = () => {
               className="w-full flex flex-col items-center justify-center gap-6 p-4 bg-white rounded-xl border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs"
             >
               <div className="flex w-full h-14 items-center justify-center gap-3 p-5 bg-[#006173] rounded-xl shadow-shadows-shadow-xs">
-                <div className="relative w-8 h-8 mt-[-8px] mb-[-8px] bg-white rounded-md overflow-hidden border border-solid border-[#e9e9eb] shadow-shadows-shadow-xs-skeuomorphic">
-                  <div className="absolute w-4 h-4 top-2 left-2">
-                    {section.icon}
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-start gap-0.5 flex-1 grow mt-[-4px] mb-[-4px]">
-                  <div className="relative self-stretch mt-[-1px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-white text-base tracking-[0] leading-6 [direction:rtl]">
-                    {section.title}
-                  </div>
-                </div>
-                <div className="flex gap-2">
+ 
+              <div className="flex gap-2">
                   <Button
                     variant="outline"
                     className="flex w-[120px] items-center justify-center gap-1 px-3 py-2 mt-[-10px] mb-[-10px] bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
@@ -115,7 +105,7 @@ const ManageData = () => {
                     }
                   >
                     <div className="inline-flex items-center justify-center px-0.5 py-0 relative">
-                      <div className="relative w-fit mt-[-1px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                      <div className="relative w-fit mt-[-1px]   font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                         {section.buttonText}
                       </div>
                     </div>
@@ -126,12 +116,23 @@ const ManageData = () => {
                     onClick={() => handleAddInput(section.id)} // Add input to the current section
                   >
                     <div className="inline-flex items-center justify-center px-0.5 py-0 relative">
-                      <div className="relative w-fit mt-[-1px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                      <div className="relative w-fit mt-[-1px]   font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                         إضافة
                       </div>
                     </div>
                   </Button>
                 </div>
+                <div className="flex flex-col items-start gap-0.5 flex-1 grow mt-[-4px] mb-[-4px]">
+                  <div className="relative self-stretch mt-[-1px]   font-bold text-white text-base tracking-[0] leading-6 [direction:rtl]">
+                    {section.title}
+                  </div>
+                </div>
+                <div className="relative w-8 h-8 mt-[-8px] mb-[-8px] bg-white rounded-md overflow-hidden border border-solid border-[#e9e9eb] shadow-shadows-shadow-xs-skeuomorphic">
+                  <div className="absolute w-4 h-4 top-2 left-2">
+                    {section.icon}
+                  </div>
+                </div>
+       
               </div>
 
               <CardContent className="p-0 w-full">
@@ -140,7 +141,7 @@ const ManageData = () => {
                     <div key={index} className="w-full">
                       <div className="flex items-center gap-2 px-3 py-2 w-full bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs">
                         <Input
-                          className="flex-1 border-none shadow-none [font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
+                          className="flex-1 border-none shadow-none   font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
                           placeholder="اكتب المنطقة المراد اضافتها"
                           value={input}
                           disabled={section.disabled} // Disable input if saved

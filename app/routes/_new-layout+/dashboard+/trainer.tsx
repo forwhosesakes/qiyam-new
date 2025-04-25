@@ -37,12 +37,15 @@ export const Trainer = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full max-w-full overflow-hidden">
+    <div className="flex flex-col w-full max-w-full overflow-hidden ">
       <div className="flex gap-6 flex-row-reverse w-full">
                {/* Sidebar */}
                <div className="w-full md:w-[286px] flex flex-col gap-4 max-w-full">
+
+
+               <NavFeaturedCard />
           {/* Menu Items */}
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col gap-4 w-full mt-[51px]">
             {menuItems.map((item) => {
               const isActive = location.pathname === item.path; // Check if the current path matches the button's path
               return (
@@ -65,16 +68,16 @@ export const Trainer = () => {
           </div>
 
           {/* Progress Card */}
-          <NavFeaturedCard />
+        
         </div>
         <div className="flex-1 w-full max-w-full">
           <div className="mb-4 flex justify-start">
             <Button
               variant="outline"
-              className="flex items-center gap-1.5 px-[18px] py-3 rounded-lg border border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
+              className="flex items-center gap-1.5 px-[18px] py-3 rounded-lg border border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic  mt-[75px]"
             >
               <PlusCircleIcon className="w-5 h-5" />
-              <span className="[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-base text-left whitespace-nowrap [direction:rtl]">
+              <span className="  font-bold text-[#414651] text-base text-left  whitespace-nowrap [direction:rtl]">
                 تقرير جديد
               </span>
             </Button>
