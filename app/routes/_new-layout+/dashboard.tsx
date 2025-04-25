@@ -63,13 +63,13 @@ const Dashboard = () => {
   ];
 
   return (
-    <section className="pt-12 md:pt-24 px-8  pb-36 lg:px-44 bg-section min-h-screen">
+    <section className="pt-12 md:pt-24 px-8  pb-36 lg:px-44 bg-section min-h-screen  ">
       <header className="w-full h-[135px]">
         <div className="absolute w-full h-[135px] top-[72px] left-0 bg-teal-600 z-10">
-          <div className="relative flex justify-between w-9/12 h-[99px] mx-auto my-[18px]">
+          <div className="relative flex justify-between w-9/12 h-[99px] mx-auto my-[18px] [direction:rtl]">
             {/* Page Title and Navigation */}
             <div className="w-[263px] ">
-              <h1 className="text-[40px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-white text-right mb-[6px]">
+              <h1 className="text-[40px]   font-bold text-white text-right mb-[6px]">
                 حسابي
               </h1>
 

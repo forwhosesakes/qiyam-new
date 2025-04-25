@@ -43,7 +43,7 @@ function CardContent({ className, ...props }: CardContentProps) {
 
 export const HomeSectionFour = (): JSX.Element => {
   return (
-    <Card className="w-full h-screen border-0 ">
+    <Card className="w-full h-screen border-0 " >
       <CardContent className="relative w-full h-full m-auto p-0">
         <div className="relative h-full">
           {/* Green radial gradient */}

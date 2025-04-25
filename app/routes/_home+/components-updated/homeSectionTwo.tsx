@@ -61,7 +61,7 @@ export default function HomeSectionTwo(): JSX.Element {
     <section
       className="flex flex-col w-full max-w-[1280px] items-center gap-[38px] relative rounded-3xl bg-cover bg-center m-auto mt-[90px]"
       // style={{ backgroundImage: "url(../frame-1261157952.png)" }}
-    >
+     >
       <div className="flex flex-col max-w-screen-xl items-start gap-8 px-8 py-0 relative w-full " >
         <div className="flex flex-col items-center gap-12 relative self-stretch w-full">
           <div className="flex flex-col max-w-screen-md items-center gap-5 relative w-full">

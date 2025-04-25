@@ -123,8 +123,8 @@ const achievements = () => {
   return (
     <section>
       {/* Feedback Section */}
-      <div className="w-full max-w-full mb-4">
-        <Card className="w-full flex flex-col gap-[18px] p-[18px] bg-white border border-[#d5d6d9] shadow-[0px_1px_2px_#0a0d120d] rounded-xl">
+      <div className="w-full max-w-full mb-4  ">
+        <Card className="w-full flex flex-col gap-[18px] p-[18px] bg-white border border-[#d5d6d9] shadow-[0px_1px_2px_#0a0d120d] rounded-xl [direction:rtl]">
           <div className="flex flex-col items-start justify-center px-2 py-1 w-full bg-[#f7f7f7] rounded-lg">
             <div className="flex w-full items-center justify-start gap-2">
             <img

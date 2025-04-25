@@ -79,7 +79,7 @@ export const HomeSectionFive = (): JSX.Element => {
   ];
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen" >
     <div className="w-full min-h-screen bg-cover">
       <div className="flex flex-row mx-auto max-w-[1310px] py-9 px-4 h-full">
         {/* Left side with gradient background and images */}

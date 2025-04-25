@@ -23,7 +23,7 @@ export const HorizontalTabs = (): JSX.Element => {
           <TabsTrigger
             key={tab.id}
             value={tab.id}
-            className={`flex-1 h-11 rounded-md [direction:rtl] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-base leading-6 ${
+            className={`flex-1 h-11 rounded-md [direction:rtl]   font-bold text-base leading-6 ${
               activeTab === tab.id
                 ? "bg-[#68c35c] text-white shadow-shadows-shadow-sm"
                 : "bg-transparent text-[#717680]"

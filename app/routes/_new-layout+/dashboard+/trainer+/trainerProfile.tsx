@@ -199,7 +199,7 @@ export const TrainerProfile = () => {
   return (
     <div className="flex flex-col w-full max-w-full overflow-hidden">
       {/* Navigation Section */}
-      <div className="w-full rounded-xl mb-4">
+      <div className="w-full rounded-xl mb-4 [direction:rtl]">
         <Card className="relative w-full border border-[#004e5c] shadow-shadows-shadow-xs rounded-xl p-4 flex flex-col gap-4 [direction:rtl]">
           <Button
             variant="ghost"
@@ -238,7 +238,7 @@ export const TrainerProfile = () => {
       </div>
 
       {/* Feedback Section */}
-      <div className="w-full max-w-full mb-4">
+      <div className="w-full max-w-full mb-4 [direction:rtl]">
         <Card className="w-full flex flex-col gap-[18px] p-[18px] bg-white border border-[#d5d6d9] shadow-[0px_1px_2px_#0a0d120d] rounded-xl">
           <div className="flex flex-col items-start justify-center px-2 py-1 w-full bg-[#f7f7f7] rounded-lg">
             <div className="flex w-full items-center justify-start gap-2">
@@ -283,7 +283,7 @@ export const TrainerProfile = () => {
         </Card>
       </div>
       {/* Notification Section */}
-      <div className="w-full max-w-full mb-4">
+      <div className="w-full max-w-full mb-4 [direction:rtl]">
         <Card className="flex flex-col w-full items-center justify-center gap-6 p-4 bg-white rounded-xl border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs">
           <div className="flex w-full h-[50px] items-center justify-between px-2 py-1 relative bg-[#199491] rounded-lg">
             <div className="inline-flex items-center gap-[272px] relative flex-[0_0_auto]">
@@ -333,7 +333,7 @@ export const TrainerProfile = () => {
 
       {/* Review Section */}
 
-      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-xl">
+      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-xl [direction:rtl]">
         <CardContent className="mt-4">
           {/* Header */}
           <Card className="flex flex-col w-full h-[50px] items-center justify-between px-4 py-2 bg-[#199491] rounded-t-xl border-none">
@@ -403,7 +403,7 @@ export const TrainerProfile = () => {
       </Card>
 
       {/* Summary and User Info Section */}
-      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-xl">
+      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-xl [direction:rtl]">
         <CardContent className="m-4">
           {/* Header */}
           <Card className="flex flex-col w-full h-[50px] items-center justify-between px-4 py-2 bg-[#199491] rounded-t-xl border-none">

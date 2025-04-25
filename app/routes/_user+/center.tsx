@@ -10,8 +10,8 @@ const Center = () => {
   ];
 
   return (
-    <section className="pt-24 px-6 lg:px-48 flex flex-col lg:flex-row lg:justify-between lg:gap-x-12 bg-section min-h-screen ">
-      <div>
+    <section className="pt-24 px-6 lg:px-48 flex flex-col lg:flex-row lg:justify-between lg:gap-x-12 bg-section min-h-screen "  >
+      
         <div className="flex flex-row lg:flex-col gap-2">
           {categories.map((category) => (
             <NavLink
@@ -27,7 +27,7 @@ const Center = () => {
             </NavLink>
           ))}
         </div>
-      </div>
+      
       <div className="bg-white w-full border border-gray-100 rounded-lg  lg:m-5 p-5">
       <Outlet/>
       </div>

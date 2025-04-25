@@ -89,7 +89,7 @@ export const HomeSectionThree = (): JSX.Element => {
   ];
 
   return (
-<section className="flex flex-col items-center gap-16 py-24 bg-white">
+<section className="flex flex-col items-center gap-16 py-24 bg-white" >
   <div className="flex flex-col max-w-screen-xl items-start gap-8 px-8 w-full">
     <div className="flex flex-col items-center gap-12 w-full">
       <div className="flex flex-col max-w-screen-md items-center gap-5 w-full">

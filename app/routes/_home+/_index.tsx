@@ -19,7 +19,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 
 export default function Index() {
   return (
-    <div className="flex flex-col gap-y-12">
+    <div className="flex flex-col gap-y-12" >
       <Header />
       <HomeSectionOne />
       <HomeSectionTwo />

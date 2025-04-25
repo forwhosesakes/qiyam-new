@@ -38,7 +38,7 @@ const Levels = () => {
     },
   ];
   return (
-    <section id="levels" className="bg-section md:pt-48 pt-24 ">
+    <section id="levels" className="bg-section md:pt-48 pt-24  "  >
       <div className="w-4/5  mx-auto">
         <div className="flex justify-between">
           <TitleBlock text={glossary.levels.title} />

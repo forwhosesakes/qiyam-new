@@ -115,7 +115,7 @@ export const HomeSectionSeven = (): JSX.Element => {
   };
 
   return (
-    <div className="relative w-full max-w-[1280px] h-[434px] m-auto mt-[110px]   mb-[235.5px] ">
+    <div className="relative w-full max-w-[1280px] h-[434px] m-auto mt-[110px]   mb-[235.5px] " >
       <div className="w-full h-[434px]">
         <div className="flex flex-col max-w-screen-xl w-full items-start gap-8 px-8 py-0">
           <div className="flex flex-col items-center gap-12 relative self-stretch w-full">

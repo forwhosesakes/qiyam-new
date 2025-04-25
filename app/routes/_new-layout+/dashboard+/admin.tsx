@@ -39,6 +39,7 @@ export const Trainer = () => {
 
   return (
     <div className="flex flex-col w-full max-w-full overflow-hidden">
+      
       <HorizontalTabs />
       <Outlet />
     </div>

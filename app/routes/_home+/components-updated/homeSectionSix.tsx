@@ -39,7 +39,7 @@ function Badge({ className, variant, ...props }: BadgeProps) {
 
 export const HomeSectionSix = (): JSX.Element => {
   return (
-    <div className="flex flex-col max-w-screen-xl w-full items-start gap-8 px-8 py-0 m-auto">
+    <div className="flex flex-col max-w-screen-xl w-full items-start gap-8 px-8 py-0 m-auto" >
       <div className="flex flex-col items-center gap-12 w-full">
         <div className="flex flex-col max-w-screen-md items-center gap-5 w-full">
           <div className="flex flex-col items-center gap-3 w-full">

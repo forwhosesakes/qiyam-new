@@ -31,7 +31,7 @@ CardContent.displayName = "CardContent";
 
 export const HomeSectionOne = (): JSX.Element => {
   return (
-    <Card className="relative w-full max-w-[1188px] h-auto border-none m-auto" >
+    <Card className="relative w-full max-w-[1188px] h-auto border-none m-auto"  >
       <CardContent className="p-0">
         <div className="flex flex-col md:flex-row items-center justify-between w-full">
           {/* Quote section */}

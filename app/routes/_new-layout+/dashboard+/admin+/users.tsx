@@ -370,7 +370,7 @@ export const Users = (): JSX.Element => {
                 key={metric.id}
                 className="flex-1 min-w-[232px] border border-[#e9e9eb] shadow-shadows-shadow-xs"
               >
-                <CardContent className="flex items-start justify-between p-5 gap-3">
+                <CardContent className="flex items-start justify-between p-5 gap-3 [direction:rtl]">
                   <div className="flex-shrink-0 w-10 h-10 bg-white rounded-lg overflow-hidden border border-[#e9e9eb] shadow-shadows-shadow-xs-skeuomorphic flex items-center justify-center">
                     {metric.icon}
                   </div>
@@ -389,21 +389,31 @@ export const Users = (): JSX.Element => {
           </section>
 
           {/* Main Content Section */}
-          <section className="flex flex-col w-full mt-6">
+          <section className="flex flex-col w-full mt-6 ">
             <img
               className="w-full h-px object-cover mt-6 mb-3"
               alt="Divider"
               src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/vector-9.svg"
             />
 
-            <div className="relative w-full">
+            <div className="relative w-full  ">
               {/* Top controls */}
-              <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center gap-4 ml-4">
-                  <div className="[direction:rtl] text-gray-700 text-sm font-bold whitespace-nowrap">
+              <div className="flex justify-between items-center mb-6 [direction:rtl]  ">
+                <div className="flex items-center gap-4 ml-4 [direction:rtl] ">
+                  <div className=" text-gray-700 text-sm font-bold whitespace-nowrap ">
                     تم تحديد : 43
                   </div>
-
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-solid border-[#cfd4dc] text-[#12b669] font-bold shadow-shadow-xs-focused-4px-gray-100"
+                  >
+                    <img
+                      className="w-[19.5px] h-[19.5px]"
+                      alt="Accept icon"
+                      src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/group-30535.png"
+                    />
+                    قبول
+                  </Button>
                   <Button
                     variant="outline"
                     className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-solid border-[#cfd4dc] text-[#d1242f] font-bold"
@@ -416,17 +426,7 @@ export const Users = (): JSX.Element => {
                     رفض
                   </Button>
 
-                  <Button
-                    variant="outline"
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-solid border-[#cfd4dc] text-[#12b669] font-bold shadow-shadow-xs-focused-4px-gray-100"
-                  >
-                    <img
-                      className="w-[19.5px] h-[19.5px]"
-                      alt="Accept icon"
-                      src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/group-30535.png"
-                    />
-                    قبول
-                  </Button>
+               
                 </div>
 
                 <div className="w-full max-w-[544px]">

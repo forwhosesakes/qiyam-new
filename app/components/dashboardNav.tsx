@@ -72,17 +72,30 @@ export default function dashboardNav() {
     );
   // Navigation menu items data
   const menuItems = [
-    { id: 1, label: "الرئيسة", path: "/", hasDropdown: false },
     {
       id: 2,
-      label: "حسابي",
-      path: "/dashboard/trainer/trainerProfile",
-      hasDropdown: false,
+      label: "المسرف",
+      path: "/dashboard/supervisor/trainerProfile",
+      hasDropdown: true,
     },
+    { id: 7, label: "تواصل معنا" },
     {
-      id: 5,
+      id: 6,
       label: "مركز المعرفة",
       path: "/dashboard/infoCenter",
+      hasDropdown: false,
+    },
+    { id: 5, label: "المسارات", path: "/#paths", hasDropdown: true },
+    {
+      id: 4,
+      label: "أهداف البرنامج",
+      path: "/#goals",
+      hasDropdown: true,
+    },
+    {
+      id: 3,
+      label: "حسابي",
+      path: "/dashboard/trainer/trainerProfile",
       hasDropdown: false,
     },
     {
@@ -91,19 +104,15 @@ export default function dashboardNav() {
       path: "/#about",
       hasDropdown: true,
     },
-    {
-      id: 3,
-      label: "أهداف البرنامج",
-      path: "/#goals",
-      hasDropdown: true,
-    },
 
-    { id: 4, label: "المسارات", path: "/#paths", hasDropdown: true },
-    { id: 6, label: "تواصل معنا" },
+    { id: 1, label: "الرئيسة", path: "/", hasDropdown: false },
   ];
 
   return (
-    <header className="w-full flex justify-center bg-white border-b border-[#e9e9eb] fixed top-0 left-0 right-0 z-50   " dir="rtl">
+    <header
+      className="w-full flex justify-center bg-white border-b border-[#e9e9eb] fixed top-0 left-0 right-0 z-50   "
+      dir="rtl"
+    >
       <div className="max-w-screen-xl h-[72px] items-center justify-between w-full flex px-8 py-0 ">
         {/* Right side - Navigation and logo */}
         <div className="flex items-center gap-10">
@@ -119,7 +128,7 @@ export default function dashboardNav() {
               src={group4}
             /> */}
           </div>
-          <NavigationMenu   className="max-w-none">
+          <NavigationMenu className="max-w-none">
             <NavigationMenuList className="flex items-center gap-6">
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.id}>
