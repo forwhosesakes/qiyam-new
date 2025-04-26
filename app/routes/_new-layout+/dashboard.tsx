@@ -57,9 +57,9 @@ const Dashboard = () => {
   });
 
   const breadcrumbItems = [
+    { label: "مركز المعرفة ", href: "#", active: true },
+    { label: "حسابي", href: "#", active: false },
     { label: "الرئيسة", href: "#", active: false },
-    { label: "لوحة التحكم", href: "#", active: false },
-    { label: "حسابي", href: "#", active: true },
   ];
 
   return (
@@ -68,7 +68,7 @@ const Dashboard = () => {
         <div className="absolute w-full h-[135px] top-[72px] left-0 bg-teal-600 z-10">
           <div className="relative flex justify-between w-9/12 h-[99px] mx-auto my-[18px] [direction:rtl]">
             {/* Page Title and Navigation */}
-            <div className="w-[263px] ">
+            <div className=" ">
               <h1 className="text-[40px]   font-bold text-white text-right mb-[6px]">
                 حسابي
               </h1>
@@ -80,20 +80,16 @@ const Dashboard = () => {
                       <BreadcrumbLink
                         href={item.href}
                         className={`
-                        inline-flex items-center p-2 text-white
-                        ${
-                          item.active
-                            ? "[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold"
-                            : "[font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal"
-                        }
+                        inline-flex items-center pt-[16px] text-white
+                        ${item.active ? "font-bold" : " font-normal"}
                         text-base leading-[22px] whitespace-nowrap 
                       `}
                       >
+                        {index < breadcrumbItems.length - 1 && (
+                          <ChevronLeftIcon className="w-5 h-5 text-white pl-1" />
+                        )}
                         {item.label}
                       </BreadcrumbLink>
-                      {index < breadcrumbItems.length - 1 && (
-                        <ChevronLeftIcon className="w-5 h-5 text-white" />
-                      )}
                     </BreadcrumbItem>
                   ))}
                 </BreadcrumbList>
@@ -103,7 +99,7 @@ const Dashboard = () => {
             {/* Profile Section */}
             <div className="flex items-center top-[13px] left-0 gap-4 z-10">
               <div className="flex flex-col items-end gap-1.5 mr-4">
-                <div className="[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-base text-white mt-2">
+                <div className="font-bold text-base text-white mt-2">
                   نورة علي
                 </div>
                 <div className="[font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-sm text-white">

@@ -238,7 +238,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  <thead ref={ref} className={cn( className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -261,7 +261,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+      " ",
       className
     )}
     {...props}
@@ -276,7 +276,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+      "h-10 px-2 text-left align-middle font-medium ",
       className
     )}
     {...props}
@@ -291,7 +291,7 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      "p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+      "p-2 align-middle ",
       className
     )}
     {...props}
@@ -351,13 +351,13 @@ export const Users = (): JSX.Element => {
 
   // Action badges data
   const actionBadges = [
-    { label: "قبول", color: "#1a7f37", borderColor: "#1a7f37" },
-    { label: "رفض", color: "#bc4c00", borderColor: "#bc4c00" },
+    { label: "مقبول", color: "#1a7f37", borderColor: "#1a7f37" },
+    { label: "مرفوض", color: "#bc4c00", borderColor: "#bc4c00" },
     { label: "غير نشط", color: "#9a6700", borderColor: "#bf8700" },
   ];
 
   // SearchIcon tags data
-  const searchTags = Array(3).fill({ label: "Label" });
+  const searchTags = Array(3).fill({ label: 'label' });
 
   return (
     <div className="w-full max-w-[1216px] mx-auto p-6">
@@ -389,12 +389,8 @@ export const Users = (): JSX.Element => {
           </section>
 
           {/* Main Content Section */}
-          <section className="flex flex-col w-full mt-6 ">
-            <img
-              className="w-full h-px object-cover mt-6 mb-3"
-              alt="Divider"
-              src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/vector-9.svg"
-            />
+          <section className="flex flex-col w-full mt-20 ">
+
 
             <div className="relative w-full  ">
               {/* Top controls */}
@@ -433,14 +429,14 @@ export const Users = (): JSX.Element => {
                   <div className="flex flex-col w-full gap-1.5">
                     <div className="flex items-center gap-2 px-3.5 py-2.5 bg-white rounded-lg border border-solid border-[#cfd4dc] shadow-shadow-xs">
                       <div className="flex items-center  gap-2 flex-1">
-                        <SearchIcon className="w-5 h-5" />
-                        <span className="text-gray-500 text-base [direction:rtl]">
-                          ثحب
+                        <SearchIcon className="w-5 h-5 text-[#475467] " />
+                        <span className="text-gray-500 text-base  ">
+                        بحث 
                         </span>
                       </div>
 
                       <div className="flex gap-2">
-                        {searchTags.map((tag, index) => (
+                        {actionBadges.map((tag, index) => (
                           <Badge
                             key={index}
                             variant="outline"
@@ -454,18 +450,22 @@ export const Users = (): JSX.Element => {
                   </div>
                 </div>
               </div>
-
+              <img
+              className="w-full h-px object-cover mt-6 mb-3"
+              alt="Divider"
+              src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/vector-9.svg"
+            />
               {/* Table */}
               <div className="w-full">
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-b border-[#e4e7ec]">
+                    <TableRow className="mb-4 border-[#e4e7ec]  ">
                       
                       {/* <TableHead className="text-right pr-2">
                         <span className="sr-only">Select</span>
                       </TableHead> */}
                       
-                      <TableHead className="text-right  font-medium text-gray-700 text-[15px]">
+                      <TableHead className="text-center   font-medium text-gray-700 text-[15px] ">
                         الإجراء
                       </TableHead>
                       <TableHead className="text-right [direction:rtl] font-medium text-gray-700 text-[15px]">
@@ -499,10 +499,10 @@ export const Users = (): JSX.Element => {
                     {getCurrentPageData().map((row, index) => (
                       <TableRow
                         key={index}
-                        className="border-b border-[#e4e7ec]"
+                        className="border-b border-[#e4e7ec] "
                       >
                 
-                        <TableCell className="py-1 px-2">
+                        <TableCell className="py-1 px-2 mt-4">
                           <div className="flex items-center gap-3.5">
                             {actionBadges.map((badge, badgeIndex) => (
                               <Badge
@@ -591,7 +591,7 @@ export const Users = (): JSX.Element => {
                       disabled={currentPage === 1}
                     >
                       <ArrowLeftIcon className="w-5 h-5" />
-                      <span className="[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-gray-800 text-sm [direction:rtl]">
+                      <span className=" font-bold text-sm [direction:rtl]">
                         السابق
                       </span>
                     </Button>
@@ -642,7 +642,7 @@ export const Users = (): JSX.Element => {
                       }
                       disabled={currentPage === totalPages}
                     >
-                      <span className="[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-gray-800 text-sm [direction:rtl]">
+                      <span className=" font-bold  text-sm [direction:rtl]">
                         التالي
                       </span>
                       <ArrowRightIcon className="w-5 h-5" />

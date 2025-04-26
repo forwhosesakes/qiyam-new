@@ -30,27 +30,30 @@ export default function dashboardNav() {
 
   const AuthActions = () =>
     user ? (
-      <div className="flex items-center gap-4 flex-row">
+      <div className="flex items-center gap-4 flex-row ">
+
+        <div className="flex items-start gap-1  [direction:rtl] ">
+        <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
+          <SearchIcon className="w-5 h-5" />
+        </button>
+        <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
+            <SettingsIcon className="w-5 h-5" />
+          </button>
+          <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
+            <BellIcon className="w-5 h-5" />
+          </button>
+      
+      
+
+  
+        </div>
+
         <div className="flex flex-col items-start">
           <Avatar className="w-10 h-10 bg-neutral-100 border-[0.75px] border-solid border-[#00000014]">
             <AvatarFallback className="text-[#717680] font-semibold">
               OR
             </AvatarFallback>
           </Avatar>
-        </div>
-
-        <div className="flex items-start gap-1">
-          <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
-            <BellIcon className="w-5 h-5" />
-          </button>
-
-          <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
-            <SettingsIcon className="w-5 h-5" />
-          </button>
-
-          <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
-            <SearchIcon className="w-5 h-5" />
-          </button>
         </div>
       </div>
     ) : (
@@ -72,13 +75,12 @@ export default function dashboardNav() {
     );
   // Navigation menu items data
   const menuItems = [
- 
-    { id: 7, label: "تواصل معنا" },
+    { id: 7, label: "تواصل معنا", hasDropdown: true },
     {
       id: 6,
       label: "مركز المعرفة",
       path: "/dashboard/infoCenter",
-      hasDropdown: false,
+      hasDropdown: true,
     },
     { id: 5, label: "المسارات", path: "/#paths", hasDropdown: true },
     {
@@ -91,7 +93,7 @@ export default function dashboardNav() {
       id: 3,
       label: "حسابي",
       path: "/dashboard/trainer/trainerProfile",
-      hasDropdown: false,
+      hasDropdown: true,
     },
     {
       id: 2,
@@ -106,7 +108,7 @@ export default function dashboardNav() {
   return (
     <header
       className="w-full flex justify-center bg-white border-b border-[#e9e9eb] fixed top-0 left-0 right-0 z-50   "
-      dir="rtl"
+    dir="rtl"
     >
       <div className="max-w-screen-xl h-[72px] items-center justify-between w-full flex px-8 py-0 ">
         {/* Right side - Navigation and logo */}
@@ -128,19 +130,19 @@ export default function dashboardNav() {
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.id}>
                   {item.hasDropdown ? (
-                    <NavigationMenuTrigger className="px-0 py-3 hover:none hover:bg-transparent [&_svg]:hover:rotate-0">
-                      <div className="flex items-center justify-center gap-2">
-                        <span className="mt-[-1.00px]  font-bold text-gray-600 text-base text-left tracking-[0] leading-6 whitespace-nowrap ">
+                    <NavigationMenuTrigger className=" hover:none hover:bg-transparent  [direction:rtl]">
+                      <div className="flex flex-row-reverse items-center justify-center  ">
+                        <span className="  font-bold text-[#475467] text-base text-left tracking-[0] leading-6 whitespace-nowrap">
                           {item.label}
                         </span>
                       </div>
                     </NavigationMenuTrigger>
                   ) : (
                     <div className="px-0 py-1">
-                      <div className="flex items-center justify-center flex-row-reverse gap-2">
+                      <div className="flex items-center justify-center flex-row-reverse  ">
                         <button
                           onClick={() => item.path && navigate(`${item.path}`)}
-                          className="mt-[-1.00px]  font-bold text-gray-600 text-base text-left tracking-[0] leading-6 whitespace-nowrap "
+                          className="mt-[-1.00px] font-bold text-[#475467] text-base text-left tracking-[0] leading-6 whitespace-nowrap"
                         >
                           {item.label}
                         </button>

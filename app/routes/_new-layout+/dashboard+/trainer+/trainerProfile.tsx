@@ -23,6 +23,8 @@ import { useState } from "react";
 import { NavFeaturedCard } from "./NavFeatureCard";
 import Group30476 from "../../../../assets/images/new-design/Group 30476.png";
 import sendicon from "../../../../assets/images/new-design/send-01.png";
+import avatar from "../../../../assets/images/new-design/Avatar (1).png";
+import verifiedTick from "../../../../assets/images/new-design/Verified tick.png";
 
 export async function loader({ request, context, params }: LoaderFunctionArgs) {
   return materialDB
@@ -91,8 +93,8 @@ export const TrainerProfile = () => {
     timeAgo: "منذ دقيقتين",
     content:
       "شكرا على جعودكم الكريمة أ.نورة الشهري , على جهدكم المبذول الكبير , مع تمنياتنا لكم بالتوفيق الكبير",
-    avatarUrl: "./trainer+/assets/avatar.png",
-    verifiedIconUrl: "./trainer+/assets/verified-tick.svg",
+    avatarUrl: avatar,
+    verifiedIconUrl: verifiedTick,
   };
 
   // Data for metric cards
@@ -196,6 +198,21 @@ export const TrainerProfile = () => {
     });
   };
 
+  function handleValueChange(index: number, value: string): void {
+    setSkillsColumns((prevColumns) => {
+      const updatedColumns = [...prevColumns];
+      const columnIndex = Math.floor(index / 7); // Assuming 7 items per column
+      const skillIndex = index % 7;
+      if (
+        updatedColumns[columnIndex] &&
+        updatedColumns[columnIndex][skillIndex]
+      ) {
+        updatedColumns[columnIndex][skillIndex].label = value;
+      }
+      return updatedColumns;
+    });
+  }
+
   return (
     <div className="flex flex-col w-full max-w-full overflow-hidden">
       {/* Navigation Section */}
@@ -229,9 +246,7 @@ export const TrainerProfile = () => {
                   {messageData.timeAgo}
                 </span>
               </div>
-              <p className="text-sm text-[#414651] ">
-                {messageData.content}
-              </p>
+              <p className="text-sm text-[#414651] ">{messageData.content}</p>
             </div>
           </CardContent>
         </Card>
@@ -305,48 +320,44 @@ export const TrainerProfile = () => {
               </span>
             </Button>
           </div>
-
           <div className="flex flex-wrap w-full items-center gap-y-6 p-0">
-            {metricCards.map((card, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-start gap-4"
-                style={{ flex: "0 0 calc(20% - 24px)" }} // 20% width minus gap
-              >
-                <div className="w-full font-medium text-sm text-center text-black tracking-[0] [direction:rtl] whitespace-nowrap overflow-hidden text-ellipsis">
-                  {card.title}
+            <div className="flex flex-wrap w-full items-center gap-x-6 gap-y-6 p-0">
+              {metricCards.map((card, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-start gap-4"
+                  style={{ flex: "0 0 calc(20% - 24px)" }}
+                >
+                  <div className="w-full font-medium text-sm text-left text-black tracking-[0] [direction:rtl] whitespace-nowrap overflow-hidden text-ellipsis mb-2">
+                    {card.title}
+                  </div>
+                  <input
+                    type="text"
+                    className="w-[136px] h-9 text-center font-medium text-[#1f2a37] text-sm bg-[#f8f9fb] rounded-lg border border-solid border-[#d0d5dd] focus:outline-none focus:ring-2 focus:ring-[#68c35c]"
+                    value={card.value}
+                    onChange={(e) => handleValueChange(index, e.target.value)}
+                  />
                 </div>
-                <Card className="flex w-[136px] h-9 items-start justify-center p-0 bg-[#f8f9fb] rounded-lg border border-solid border-[#d0d5dd]">
-                  <CardContent className="flex items-center justify-center p-0 h-full">
-                    <div className="flex w-[136px] h-9 items-center justify-center gap-3  relative bg-[#f8f9fb] rounded-lg border border-solid border-[#d0d5dd]">
-                      <div className="relative w-fit  font-medium text-[#1f2a37] text-sm text-right tracking-[0] leading-[normal]">
-                        {card.value}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Card>
       </div>
 
       {/* Review Section */}
-
-      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-xl [direction:rtl]">
-        <CardContent className="mt-4">
+      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-md [direction:rtl]">
+        <CardContent className="m-4">
           {/* Header */}
-          <Card className="flex flex-col w-full h-[50px] items-center justify-between px-4 py-2 bg-[#199491] rounded-t-xl border-none">
+          <Card className="flex flex-col w-full h-[50px] items-baseline justify-between px-2 py-2 bg-[#199491] rounded-md border-none">
             <CardContent className="flex w-full justify-between items-center p-0">
               <h2 className=" font-bold text-white text-2xl [direction:rtl]">
                 انطباع الطالبات
               </h2>
-
               <Button
                 variant="outline"
-                className="h-9 w-[120px] bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
+                className="flex w-[120px] items-center justify-center gap-1 px-3 py-2 bg-white rounded-lg overflow-hidden border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
               >
-                <span className=" font-bold text-[#414651] text-sm [direction:rtl]">
+                <span className="relative w-fit  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                   حفظ
                 </span>
               </Button>
@@ -354,59 +365,53 @@ export const TrainerProfile = () => {
           </Card>
 
           {/* Review Opinions */}
-       
-            <Tabs defaultValue="opinion-1" >
-              {/* Tabs List */}
-              <TabsList className="flex-col w-full mt-5  rounded-lg p-0 h-auto">
-                {opinions.map((opinion) => (
-                  <TabsTrigger
-                    key={opinion.id}
-                    value={`opinion-${opinion.id}`}
-                    className={`flex  items-center justify-between w-full p-3 h-[42px] data-[state=active]:bg-[#ebedf0] data-[state=inactive]:bg-[#f9f9f9] rounded-lg`}
-                  >
-                    <div className="flex items-center justify-end w-full gap-4">
-                      <MinusCircleIcon className="w-6 h-6" />
-                      <div className="flex items-start justify-end flex-1">
-                        <div className="flex w-full gap-6 items-center justify-end">
-                          <div className="flex-col w-full items-end gap-2 flex">
-                            <div
-                              className={`w-fit  font-bold ${
-                                opinion.active ? "text-black" : "text-[#414651]"
-                              } text-base leading-normal [direction:rtl]`}
-                            >
-                              {opinion.title}
-                            </div>
+
+          <Tabs defaultValue="opinion-1">
+            {/* Tabs List */}
+            <TabsList className="flex-col w-full mt-5  rounded-lg p-0 h-auto">
+              {opinions.map((opinion) => (
+                <TabsTrigger
+                  key={opinion.id}
+                  value={`opinion-${opinion.id}`}
+                  className={`flex  items-center justify-between w-full p-3 h-[42px] data-[state=active]:bg-[#ebedf0] data-[state=inactive]:bg-[#f9f9f9] rounded-lg`}
+                >
+                  <div className="flex items-center justify-end w-full gap-4">
+                    <MinusCircleIcon className="w-6 h-6" />
+                    <div className="flex items-start justify-end flex-1">
+                      <div className="flex w-full gap-6 items-center justify-end">
+                        <div className="flex-col w-full items-end gap-2 flex">
+                          <div
+                            className={`w-fit  font-bold ${
+                              opinion.active ? "text-black" : "text-[#414651]"
+                            } text-base leading-normal [direction:rtl]`}
+                          >
+                            {opinion.title}
                           </div>
                         </div>
                       </div>
                     </div>
-                  </TabsTrigger>
-                ))}
-           
-              </TabsList>
-              {opinions.map((opinion) => (
-                  <TabsContent
-                    key={`content-${opinion.id}`}
-                    value={`opinion-${opinion.id}`}
-                  >
-                    
-                      <Textarea   
-                       
-                        placeholder="اكتب هنا" />
-                   
-                  </TabsContent>
-                ))}
-              {/* Tabs Content */}
-            </Tabs>
-          
+                  </div>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            {opinions.map((opinion) => (
+              <TabsContent
+                key={`content-${opinion.id}`}
+                value={`opinion-${opinion.id}`}
+              >
+                <Textarea placeholder="اكتب هنا" />
+              </TabsContent>
+            ))}
+            {/* Tabs Content */}
+          </Tabs>
         </CardContent>
       </Card>
 
       {/* Summary and User Info Section */}
-      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-xl [direction:rtl]">
+      <Card className="w-full max-w-full mb-4 border border-[#d5d7da] rounded-md [direction:rtl]">
         <CardContent className="m-4">
           {/* Header */}
-          <Card className="flex flex-col w-full h-[50px] items-center justify-between px-4 py-2 bg-[#199491] rounded-t-xl border-none">
+          <Card className="flex flex-col w-full h-[50px] items-center justify-between px-2 py-2 bg-[#199491] rounded-md border-none">
             <CardContent className="flex w-full justify-between items-center p-0">
               <div className="flex items-baseline justify-between w-48">
                 <span className=" font-bold text-white text-2xl ">
@@ -416,12 +421,13 @@ export const TrainerProfile = () => {
                   /22 مهارات مختارة
                 </span>
               </div>
-
               <Button
                 variant="outline"
-                className="h-9 w-[120px] bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
+                className="flex w-[120px] items-center justify-center gap-1 px-3 py-2 bg-white rounded-lg overflow-hidden border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
               >
-                <span className=" font-bold text-[#414651] text-sm ">حفظ</span>
+                <span className="relative w-fit  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                  حفظ
+                </span>
               </Button>
             </CardContent>
           </Card>
@@ -458,9 +464,9 @@ export const TrainerProfile = () => {
         </CardContent>
       </Card>
       {/* Bottom Action Button */}
-      <div className="w-full max-w-full flex justify-center mt-[52px]">
+      <div className="w-full max-w-full flex justify-center mt-[52px] [direction:rtl] ">
         <Button className="w-full bg-[#006173] text-white hover:bg-[#0a7285]  h-[48px]">
-          حفظ وإرسال
+          إرسال التقرير
           <img src={sendicon} alt="" />
         </Button>
       </div>

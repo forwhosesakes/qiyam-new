@@ -6,6 +6,8 @@ import {
   CardContent,
 } from "~/routes/_auth+/new-design/components/ui/card";
 import { Input } from "~/routes/_auth+/new-design/components/ui/input";
+import plusImg from "./assets/plus.svg"
+
 
 const ManageData = () => {
   // State for sections and inputs
@@ -84,7 +86,7 @@ const ManageData = () => {
   };
 
   return (
-    <div className="max-w-[1216px] h-full">
+    <div className="max-w-[1216px] h-full mt-[20px]  mb-[423px]">
       <div className="w-full h-full bg-white rounded-2xl border border-solid border-[#d0d5dd]">
         <div className="flex flex-col gap-[46px] p-[42px] items-start">
           {sections.map((section) => (
@@ -116,9 +118,11 @@ const ManageData = () => {
                     onClick={() => handleAddInput(section.id)} // Add input to the current section
                   >
                     <div className="inline-flex items-center justify-center px-0.5 py-0 relative">
-                      <div className="relative w-fit mt-[-1px]   font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                  
+                      <div className="relative w-fit mt-[-1px]  mr-2  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                         إضافة
                       </div>
+                      <img src={plusImg} alt="plus Logo" />
                     </div>
                   </Button>
                 </div>
@@ -138,7 +142,7 @@ const ManageData = () => {
               <CardContent className="p-0 w-full">
                 <div className="flex flex-col gap-3 w-full">
                   {section.inputs.map((input, index) => (
-                    <div key={index} className="w-full">
+                    <div key={index} className="w-full [direction:rtl]">
                       <div className="flex items-center gap-2 px-3 py-2 w-full bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs">
                         <Input
                           className="flex-1 border-none shadow-none   font-normal text-[#717680] text-base tracking-[0] leading-6 [direction:rtl]"
@@ -161,8 +165,8 @@ const ManageData = () => {
                             );
                           }}
                         />
-                        <MinusCircleIcon
-                          className="w-4 h-4 cursor-pointer"
+                        <PlusCircleIcon
+                          className="w-4 h-4 cursor-pointer text-[#A4A7AE]"
                           onClick={() => handleRemoveInput(section.id, index)}
                         />
                       </div>

@@ -66,24 +66,23 @@ Button.displayName = "Button";
 // Header component
 export const Header = (): JSX.Element => {
   return (
-    <section className="flex flex-col max-w-screen-xl w-full items-center gap-8 px-8 py-0 mx-auto " >
-      <div className="flex flex-col gap-12 self-stretch w-full items-center" >
+    <section className="flex flex-col max-w-screen-xl w-full items-center gap-8 px-8 py-0 mx-auto ">
+      <div className="flex flex-col gap-12 self-stretch w-full items-center">
         <div className="flex flex-col max-w-screen-lg items-center gap-6 w-full">
           <div className="flex flex-col items-center gap-4 self-stretch w-full mt-[160px]">
-            <div className="inline-flex items-center gap-3 pl-1 pr-2.5 py-1 bg-white rounded-[10px] border-[#d5d6d9] shadow-shadows-shadow-xs border border-solid" >
+            <div className="inline-flex items-center gap-3 pl-1 pr-2.5 py-1 bg-white rounded-[10px] border-[#d5d6d9] shadow-shadows-shadow-xs border border-solid">
               <div className="inline-flex gap-1 items-center">
                 <span className=" font-medium text-[#414651] text-sm   tracking-[0] leading-5 whitespace-nowrap  ">
                   برنامج التكمين التطوعي للبنات
                 </span>
               </div>
-
-              <Badge className="gap-1.5 px-2 py-0.5 bg-[#68c35c1f] text-[#006173] rounded-md border-[#539c4a57] border border-solid">
-                <span className="  font-medium text-sm text-left tracking-[0] leading-5 whitespace-nowrap ">
+              <Badge className="flex flex-row-reverse items-center gap-1.5 px-2 py-0.5 bg-[#68c35c1f] text-[#006173] rounded-md border-[#539c4a57] border border-solid">
+                <div className="relative w-3 h-3 flex items-center">
+                  <div className="w-3 h-3 bg-[#00ae84] rounded-md border-[3px] border-solid border-[#f4ebff]" />
+                </div>
+                <span className="font-medium text-sm text-left tracking-[0] leading-5 whitespace-nowrap">
                   مميزات جديدة
                 </span>
-                <div className="relative w-2 h-2">
-                  <div className="relative w-3 h-3 -top-0.5 -left-0.5 bg-[#00ae84] rounded-md border-[3px] border-solid border-[#f4ebff]" />
-                </div>
               </Badge>
             </div>
 
@@ -94,15 +93,13 @@ export const Header = (): JSX.Element => {
 
           <p className="  font-normal text-[#535861] text-xl text-center tracking-[0] leading-[30px]">
             برنامج نوعي على مستوى المملكة موجه للفتيات، لتمكينهن من تحصيل
-            الساعات التطوعية  <br/>المحددة لهن كمتطلب تخرج من التعليم العام
+            الساعات التطوعية <br />
+            المحددة لهن كمتطلب تخرج من التعليم العام
           </p>
         </div>
 
         <div className="inline-flex items-start gap-3">
-          <button
-             
-            className="inline-flex items-center justify-center gap-2 px-[26px] py-4 bg-white rounded-[10px] border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
-          >
+          <button className="inline-flex items-center justify-center gap-2 px-[26px] py-4 bg-white rounded-[10px] border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic">
             <span className="[font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#414651] text-lg text-left tracking-[0] leading-7 whitespace-nowrap ">
               للمزيد
             </span>

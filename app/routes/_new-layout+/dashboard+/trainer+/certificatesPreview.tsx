@@ -3,6 +3,7 @@ import { DownloadCloudIcon } from "lucide-react";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import pagesvg from "../../../../assets/images/new-design/Filetypeicon.png"
 // Utility function
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -141,13 +142,13 @@ const certificatesPreview = () => {
         </div>
 
         {/* Form Fields */}
-        <div className="flex items-start justify-start gap-[18px] w-full [direction:rtl] ">
+        <div className="flex items-start text-right justify-start gap-[18px] w-full [direction:rtl] ">
           {formFields.map((field) => (
             <div
               key={field.id}
-              className={`flex flex-col items-center gap-1.5 ${field.width}`}
+              className={`flex flex-col items-start gap-1.5 ${field.width}`}
             >
-              <div className="flex flex-col items-end gap-1.5 w-full">
+              <div className="flex flex-col items-start gap-1.5 w-full">
                 <div className="inline-flex items-start gap-0.5">
                 {field.required && (
                     <span className="mt-[-1.00px] text-x-1c-8-1ac text-sm font-medium">
@@ -181,7 +182,7 @@ const certificatesPreview = () => {
 
             <div className="relative h-10 w-10">
               <div className="relative left-1 h-10 w-8">
-                <img className="h-10 w-8" alt="PDF file" src="/page.svg" />
+                <img className="h-10 w-8" alt="PDF file" src={pagesvg} />
                 <div className="absolute left-0 top-[22px] w-8 font-sans text-[9px] font-bold text-white text-center">
                   PDF
                 </div>
@@ -201,8 +202,9 @@ const certificatesPreview = () => {
               size="sm"
               className="flex items-center gap-1 rounded-lg border-[#d5d6d9] bg-white shadow-shadows-shadow-xs-skeuomorphic"
             >
-              <DownloadCloudIcon className="h-5 w-5" />
+             
               <span className="font-bold text-[#414651] text-sm">تحميل</span>
+              <DownloadCloudIcon className="h-5 w-5" />
             </Button>
           </CardContent>
         </Card>

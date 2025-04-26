@@ -2,7 +2,13 @@ import React from "react";
 import { DownloadCloudIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import image from "../../../assets/images/new-design/image-1.png"
+import image from "../../../assets/images/new-design/image-1.png";
+import pdfImg from "../../../assets/images/new-design/Filetypeicon.png";
+import image2 from "../../../assets/images/new-design/image.png";
+import ArrowLeft from "../../../assets/images/new-design/arrow-right-02.png";
+
+
+
 // Utility function
 const cn = (...inputs: (string | undefined)[]) => {
   return twMerge(clsx(inputs));
@@ -217,32 +223,32 @@ const NCFiles = () => {
   const articleCards: ArticleCard[] = [
     {
       id: 1,
-      image: "/image-3.png",
+      image: image,
       title: "واقعنا والقيم",
       description: "هنا نص بداية المقال وهو نص حسب المحتوى",
     },
     {
       id: 2,
-      image: "/image-2.png",
+      image: image2,
       title: "واقعنا والقيم",
       description: "هنا نص بداية المقال وهو نص حسب المحتوى",
     },
     {
       id: 3,
-      image: "/image-2.png",
+      image: image2,
       title: "واقعنا والقيم",
       description: "هنا نص بداية المقال وهو نص حسب المحتوى",
     },
     {
       id: 4,
-      image: "/image-3.png",
+      image: image,
       title: "واقعنا والقيم",
       description: "هنا نص بداية المقال وهو نص حسب المحتوى",
     },
   ];
 
   return (
-    <Card className="flex flex-col w-full max-w-[1216px] gap-8 p-4 bg-white rounded-2xl">
+    <Card className="flex flex-col w-full max-w-[1216px] gap-8 p-4 bg-white rounded-2xl mt-[82px] mb-[265.5px]">
       {/* Navigation Tabs */}
       <Tabs defaultValue="knowledge-center" dir="rtl" className="w-full">
         <TabsList className="flex items-center justify-center gap-1 p-1.5 w-full bg-neutral-50 rounded-xl border border-solid border-[#e9e9eb]">
@@ -256,10 +262,6 @@ const NCFiles = () => {
                   : "bg-transparent text-[#717680]"
               }`}
             >
-              <span className=" font-bold text-base tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
-                {tab.label}
-              </span>
-
               {tab.badge && (
                 <Badge
                   // variant="outline"
@@ -270,6 +272,9 @@ const NCFiles = () => {
                   </span>
                 </Badge>
               )}
+              <span className=" font-bold text-base tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
+                {tab.label}
+              </span>
             </TabsTrigger>
           ))}
         </TabsList>
@@ -299,9 +304,10 @@ const NCFiles = () => {
                       <div className="w-10 h-10">
                         <div className="relative w-8 h-10 left-1">
                           <img
-                            className="w-8 h-10"
+                             
                             alt="Page"
-                            src="/page.svg"
+                            // src="/page.svg"
+                            src={pdfImg}
                           />
                           <div className="absolute w-8 top-[5px] left-0 font-bold text-white text-[9px] text-center">
                             {file.fileType}
@@ -371,13 +377,9 @@ const NCFiles = () => {
                   <Button className="h-[29.42px] px-[11.77px] py-0 bg-[#006173] text-white rounded-[5.88px] border-[0.74px] border-[#669ccd] flex items-center gap-[2.94px]">
                     <div className="w-[17.65px] h-[17.65px] relative">
                       <img
-                        className="absolute w-[13px] h-2 top-[5px] left-0.5 -rotate-180"
+                        className="absolute text-white     "
                         alt="Elements"
-                        src={`/elements${
-                          article.id === 1 || article.id === 4
-                            ? ""
-                            : `-${article.id - 1}`
-                        }.png`}
+                        src={ArrowLeft}
                       />
                     </div>
                     <span className="font-medium text-white text-[11.8px] leading-[17.7px] whitespace-nowrap [direction:rtl]">

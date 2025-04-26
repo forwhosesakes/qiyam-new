@@ -15,7 +15,7 @@ export const HorizontalTabs = (): JSX.Element => {
   return (
     <Tabs
       defaultValue="members"
-      className="w-full mx-1"
+      className="w-full mx-1 mt-[20px]"
       onValueChange={setActiveTab}
     >
       <TabsList className="flex w-full h-14 p-1.5 gap-1 bg-neutral-50 border border-solid border-[#e9e9eb] rounded-none">

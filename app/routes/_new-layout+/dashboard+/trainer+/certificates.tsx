@@ -151,12 +151,12 @@ const Certificates = () => {
           <div>
             <div
               key={index}
-              className="flex items-start justify-end gap-[18px] w-full"
+              className="flex items-start justify-start gap-[18px] w-full"
             >
               {formFields.map((field) => (
                 <div
                   key={field.id}
-                  className={`flex flex-col items-center gap-1.5 self-stretch ${
+                  className={`flex flex-col items-right gap-1.5 self-stretch ${
                     field.width || "flex-1"
                   }`}
                 >

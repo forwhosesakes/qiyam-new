@@ -26,12 +26,12 @@ const DashboardFooter = (): JSX.Element => {
   const socialIcons = [
     {
       id: 1,
-      src: "app/assets/images/new-design/footer/social-icon.svg",
+      src:youtubeIcon,
       alt: "Social icon",
     },
     {
       id: 2,
-      src: "app/assets/images/new-design/footer/social-icon-1.svg",
+      src:   facebookIcon,
       alt: "Social icon",
     },
   ];
@@ -63,7 +63,7 @@ const DashboardFooter = (): JSX.Element => {
                       </div>
                     </div>
 
-                    <div className="relative w-[451px] mt-[-1.00px] [font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-white text-base tracking-[0] leading-6 [direction:rtl]">
+                    <div className="relative w-[451px] mt-[-1.00px]  font-normal text-white text-base tracking-[0] leading-6 [direction:rtl]">
                       برنامج نوعي على مستوى المملكة موجه للفتيات، لتمكينهن من
                       تحصيل الساعات التطوعية المحددة لهن كمتطلب تخرج من التعليم
                       العام
@@ -77,7 +77,7 @@ const DashboardFooter = (): JSX.Element => {
                           <NavigationMenuLink className="inline-flex items-center justify-end gap-2">
                             <div className="inline-flex items-start">
                               <div className="inline-flex items-center justify-center gap-2">
-                                <div className="relative w-fit mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-white text-base text-left tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
+                                <div className="relative w-fit mt-[-1.00px]  font-bold text-white text-base text-left tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
                                   {link.text}
                                 </div>
                               </div>
@@ -106,7 +106,7 @@ const DashboardFooter = (): JSX.Element => {
                     />
                   ))}
                 </div>
-                <div className="relative flex-1 mt-[-1.00px] [font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-white text-base text-left tracking-[0] leading-6 [direction:rtl]">
+                <div className="relative flex-1 mt-[-1.00px]  font-normal text-white text-base text-left tracking-[0] leading-6 [direction:rtl]">
                   © جميع الحقوق محفوظة لجمعية رواء العلم.
                 </div>
 
