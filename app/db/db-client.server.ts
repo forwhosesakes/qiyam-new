@@ -1,10 +1,10 @@
 
-import { Pool, neonConfig } from "@neondatabase/serverless";
+import { Pool } from "@neondatabase/serverless";
 import { PrismaNeon } from "@prisma/adapter-neon";
-import { PrismaClient } from "@prisma/client";
-
-import ws from "ws";
-neonConfig.webSocketConstructor = ws;
+import { PrismaClient } from "@prisma/client/edge";
+import { withAccelerate } from "@prisma/extension-accelerate";
+// import ws from "ws";
+// neonConfig.webSocketConstructor = ws;
 // let globalDb:any = null;
 
 export const client = (db: string) => {
@@ -14,7 +14,9 @@ export const client = (db: string) => {
       const pool = new Pool({ connectionString: db,
       });
       const adapter = new PrismaNeon(pool);
-      const prisma = new PrismaClient({ adapter });
+      //@ts-ignore
+      const prisma = new PrismaClient({ adapter }).$extends(withAccelerate());
+    
       
       
       return prisma;
@@ -29,3 +31,5 @@ export const client = (db: string) => {
 
 
 };
+
+
