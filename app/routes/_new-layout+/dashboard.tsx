@@ -63,11 +63,11 @@ const Dashboard = () => {
   ];
 
   return (
-    <section className="pt-12 md:pt-24 px-8  pb-36 lg:px-44 bg-section min-h-screen  ">
-      <header className="w-full h-[135px]">
+    <section  className="pt-12 md:pt-24 px-8  pb-36 lg:px-44 bg-section min-h-screen  ">
+       <header className="w-full h-[135px]">
         <div className="absolute w-full h-[135px] top-[72px] left-0 bg-teal-600 z-10">
           <div className="relative flex justify-between w-9/12 h-[99px] mx-auto my-[18px] [direction:rtl]">
-            {/* Page Title and Navigation */}
+    
             <div className=" ">
               <h1 className="text-[40px]   font-bold text-white text-right mb-[6px]">
                 حسابي
@@ -96,7 +96,7 @@ const Dashboard = () => {
               </Breadcrumb>
             </div>
 
-            {/* Profile Section */}
+       
             <div className="flex items-center top-[13px] left-0 gap-4 z-10">
               <div className="flex flex-col items-end gap-1.5 mr-4">
                 <div className="font-bold text-base text-white mt-2">
@@ -117,12 +117,12 @@ const Dashboard = () => {
                     />
                   </AvatarFallback>
                 </Avatar>
-                {/* <div className="absolute w-[19px] h-[19px] bottom-1 right-1 bg-success-500 rounded-lg border-[1.5px] border-solid border-[#ffffff] z-20" /> */}
-              </div>
+                 <div className="absolute w-[19px] h-[19px] bottom-1 right-1 bg-success-500 rounded-lg border-[1.5px] border-solid border-[#ffffff] z-20" /> */}
+               </div>
             </div>
           </div>
-        </div>
-      </header>
+        </div> 
+       </header>  
       <Outlet />
     </section>
   );

@@ -1,25 +1,13 @@
-import React, { useState } from "react";
-import {
-  BellIcon,
-  ChevronDownIcon,
-  PlusIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "lucide-react";
+import React from "react";
+import { PlusIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import content from "../supervisor+/assets/content.png"
-import verified from "../supervisor+/assets/verified-tick.svg"
-import column1 from "../supervisor+/assets/column-1.svg"
-import column2 from "../supervisor+/assets/column-2.svg"
-import column3 from "../supervisor+/assets/column-3.svg"
-import Skillscloudbackground from "../supervisor+/assets/layer-1.svg"
-import Skillscloudvisualization from "../supervisor+/assets/isolation-mode.svg"
-import rectangle22099 from "../supervisor+/assets/rectangle-22099.svg"
- 
-import { SupervisorStatics } from "./supervisorStatistics/supervisorStatics";
-
-
+import content from "../supervisor+/assets/content.png";
+import verified from "../supervisor+/assets/verified-tick.svg";
+import column1 from "../supervisor+/assets/column-1.svg";
+import Skillscloudbackground from "../supervisor+/assets/layer-1.svg";
+import Skillscloudvisualization from "../supervisor+/assets/isolation-mode.svg";
+import rectangle22099 from "../supervisor+/assets/rectangle-22099.svg";
 
 // Utility function
 const cn = (...inputs: any[]) => {
@@ -131,33 +119,50 @@ export const Skills = (): JSX.Element => {
 
   // Tab items data
   const tabItems = [
-    { id: "skills", label: "المهارات",  active: false,hasIndicator:true},
-    { id: "regions", label: "المناطق", path: "/dashboard/supervisor/regionStatistics", active: false },
-    { id: "statistics", label: "الإحصاءات", path: "/dashboard/supervisor/programStatistics", active: false },
-    { id: "trainer-statistics", label: "إحصاءات المدربة", path: "/dashboard/supervisor/supervisorStatistics", active: false },
+    {
+      id: "skills",
+      label: "المهارات",
+      path: "/dashboard/supervisor/skills",
+      active: false,
+      hasIndicator: true,
+    },
+    {
+      id: "regions",
+      label: "المناطق",
+      path: "/dashboard/supervisor/regionsStatistics",
+      active: false,
+    },
+    {
+      id: "statistics",
+      label: "الإحصاءات",
+      path: "/dashboard/supervisor/programStatics",
+      active: false,
+    },
+    {
+      id: "trainer-statistics",
+      label: "إحصاءات المدربة",
+      path: "/dashboard/supervisor/supervisorStatics",
+      active: false,
+    },
   ];
 
   return (
+    <div>
+      <div>
+        {/* Full-width rectangle with 40px height */}
+        <img alt="Rectangle" src={rectangle22099} />
 
-      <div className="relative w-full">
-        
-
-        <div className="relative w-full">
-          <img
-            className="w-full h-40  "
-            alt="Rectangle"
-            src={rectangle22099}
-          />
         {/* Container Section */}
-        <div className="flex flex-col w-full items-end gap-4 px-4 py-0 mt-[180px]">
+        <div className="flex flex-col w-full items-end   -mt-[10px]">
           {/* User Profile Section */}
           <div className="flex flex-col items-end gap-6 relative self-stretch w-full">
             {/* Profile Picture with Verification Badge */}
-            <div className="relative w-24 h-24">
-              <div className="relative w-[104px] h-[104px] -top-1 -left-1">
+            <div className="relative w-24 h-24 -mt-[48px]">
+              {" "}
+              {/* Adjusted to pull avatar up */}
+              <div className="relative w-[104px] h-[104px]   -left-1">
                 <Avatar
                   className="absolute w-[104px] h-[104px] rounded-full border-4 border-solid border-white shadow-shadows-shadow-lg overflow-hidden"
-                  // image="..//content.png"
                   image={content}
                   fallback="NA"
                 />
@@ -166,73 +171,79 @@ export const Skills = (): JSX.Element => {
                   className="absolute w-6 h-6 top-[74px] left-[74px]"
                   alt="Verified tick"
                   src={verified}
-
                 />
               </div>
             </div>
 
+            {/* Rest of your existing code remains the same */}
             {/* User Information */}
             <div className="flex flex-col items-end gap-0.5 relative self-stretch w-full">
-              <div className="relative self-stretch mt-[-1.00px]  font-bold text-[#181d27] text-xl tracking-[0] leading-[30px] [direction:rtl]">
+              <div className="relative self-stretch mt-[-1.00px] font-bold text-[#181d27] text-xl tracking-[0] leading-[30px] [direction:rtl]">
                 نورة علي الزهراني
               </div>
-              <div className="self-stretch text-[#535861] text-base leading-6 relative   font-normal tracking-[0] [direction:rtl]">
+              <div className="self-stretch text-[#535861] text-base leading-6 relative font-normal tracking-[0] [direction:rtl]">
                 مدرسة خالد بن الوليد رضي الله عنه - الرياض - تعليم الزلفي
               </div>
             </div>
 
-                  {/* Tabs Navigation */}
-          <div className="flex flex-col  gap-4 relative self-stretch w-full [direction:rtl]">
-            <div className="w-full">
-              <div className="flex    ">
-                {tabItems.map((tab) => (
-                  <button
-                    key={tab.id}
-                    className={`min-h-10 px-4 py-2  border-r rounded-lg ${
-                      tab.active ? "bg-neutral-50" : "bg-white"
-                    } [direction:rtl] ${!tab.active ? "z-[1]" : "z-[-5]"}`}
-                    // onClick={() => tab.path && navigate(`${tab.path}`)}
-                  >
-                    <div className="flex items-center">
-                      {tab.hasIndicator && (
-                        <div className="relative w-2.5 h-2.5 mr-2">
-                          <div className="relative w-2 h-2 top-px left-px bg-[#17b169] rounded" />
-                        </div>
-                      )}
-                      <span className="  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap">
-                        {tab.label}
-                      </span>
-                    </div>
-                  </button>
-                ))}
+            {/* Tabs Navigation */}
+            <div className="flex flex-col gap-4 relative self-stretch w-full [direction:rtl]">
+              <div className="w-full">
+                <div className="flex">
+                  {tabItems.map((tab, index) => (
+                    <button
+                      key={tab.id}
+                      className={`min-h-10 px-4 py-2 border-r ${
+                        tab.active ? "bg-neutral-50" : "bg-white"
+                      } [direction:rtl] ${!tab.active ? "z-[1]" : "z-[-5]"} 
+          ${index === 0 ? "rounded-r-lg" : ""} 
+          ${index === tabItems.length - 1 ? "rounded-l-lg" : ""}`}
+                    >
+                      <div className="flex items-center flex-row-reverse">
+                        {tab.hasIndicator && (
+                          <div className="relative w-2.5 h-2.5 ml-2">
+                            <div className="relative w-2 h-2 top-px -left-[5px] bg-[#17b169] rounded" />
+                          </div>
+                        )}
+                        <span className="font-bold text-[#414651] text-sm text-right tracking-[0] leading-5 whitespace-nowrap">
+                          {tab.label}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-
-          </div>
-          <div className="w-full p-4 bg-white rounded-xl border border-solid border-[#e4e7ec] shadow-shadows-shadow-xs rotate-180">
+          <div className="w-full p-4 bg-white rounded-xl border border-solid border-[#e4e7ec]   rotate-180 mt-8 ">
             <div className="flex items-start gap-4 p-0 mt-2">
               {/* Message Content */}
               <div className="flex flex-col items-start gap-3 relative flex-1 grow">
                 {/* Message Text */}
                 <div className="flex flex-col items-end gap-1 relative self-stretch w-full rotate-180">
                   <div className="flex items-center justify-end gap-2 relative self-stretch w-full">
-                    <div className="relative w-fit mt-[-1.00px] [font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-[#717680] text-sm tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                    <div className="relative w-fit mt-[-1.00px]   font-normal text-[#717680] text-sm tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                       منذ دقيقتين
                     </div>
-                    <div className="relative w-fit mt-[-1.00px] [font-family:'Ping_AR_+_LT-Bold',Helvetica] font-bold text-[#181d27] text-sm tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                    <div className="relative w-fit mt-[-1.00px]   font-bold text-[#181d27] text-sm tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                       اسم المشرف
                     </div>
                   </div>
-                  <div className="self-stretch mt-[-1.00px] text-[#414651] text-sm leading-5 relative   font-normal tracking-[0] [direction:rtl]">
-                    نص الرسالة يكتب هنا
-                  </div>
+                  <textarea
+                    className="self-stretch mt-[-1.00px] text-[#414651] text-sm leading-5 relative font-normal tracking-[0] [direction:rtl] bg-transparent border-none focus:outline-none resize-none"
+                    defaultValue="نص الرسالة يكتب هنا"
+                    rows={3}
+                    onChange={(e) => {
+                      // Handle input change here
+                      console.log(e.target.value);
+                    }}
+                  />
                 </div>
-              </div>     
+              </div>
             </div>
 
-                 {/* New Message Button */}
+            {/* New Message Button */}
             <div className="flex items-baseline justify-between">
               <Avatar className="w-10 h-10 rotate-180" fallback="OR" />
               <Button
@@ -240,7 +251,7 @@ export const Skills = (): JSX.Element => {
                 className="inline-flex items-center justify-center gap-1 px-3 py-2 bg-white rounded-lg rotate-180 shadow-shadows-shadow-xs-skeuomorphic"
               >
                 <PlusIcon className="w-5 h-5 -rotate-180" />
-                <span className="  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
+                <span className="font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                   رسالة جديدة
                 </span>
               </Button>
@@ -249,14 +260,41 @@ export const Skills = (): JSX.Element => {
 
           {/* Separator */}
           <div className="h-px w-full bg-[#e4e7ec]" />
-
-    
         </div>
       </div>
 
+      {/* Skills Cloud Section */}
+      <section className="w-full  mt-[132px] ">
+        <div className="flex flex-col items-center gap-8 w-full">
+          <div className="flex flex-col items-center gap-5 max-w-screen-md w-full">
+            <h2 className="font-display-md-semibold text-[#181d27] text-[36px] text-center tracking-[-0.72px] leading-[44px] font-bold rtl">
+              سحابة المهارات
+            </h2>
+            <p className="  font-normal text-[#535861] text-xl text-center leading-[30px] rtl">
+              المهارات الأكثر تعليما للمتدربات
+            </p>
+          </div>
+
+          <div className="relative w-full h-[800px] flex justify-center">
+            <img
+              className="absolute w-[979px] h-[932px]"
+              alt="Skills cloud background"
+              // src="/isolation-mode.svg"
+              src={Skillscloudvisualization}
+            />
+            <img
+              className="absolute w-[830px] h-[774px] "
+              alt="Skills cloud visualization"
+              // src="/layer-1.svg"
+              src={Skillscloudbackground}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
-      <section className="flex flex-col w-full items-center gap-16 py-24">
-        <div className="flex flex-col max-w-screen-xl items-start gap-8 px-8 w-full">
+      <section className="flex flex-col w-full items-center mt-24  ">
+        <div className="flex flex-col   items-start gap-8 px-8 w-full">
           <div className="flex flex-col items-center gap-8 w-full">
             <div className="flex flex-col max-w-screen-md items-center gap-5 w-full">
               <h2 className="w-full font-display-md-semibold text-[#181d27] text-[36px] text-center tracking-[-0.72px] leading-[44px] [direction:rtl]">
@@ -285,42 +323,7 @@ export const Skills = (): JSX.Element => {
           </div>
         </div>
       </section>
-
-      {/* Skills Cloud Section */}
-      <section className="w-full py-16 px-5">
-        <div className="flex flex-col items-center gap-8 w-full">
-          <div className="flex flex-col items-center gap-5 max-w-screen-md w-full">
-            <h2 className="font-display-md-semibold text-[#181d27] text-[36px] text-center tracking-[-0.72px] leading-[44px] font-bold rtl">
-              سحابة المهارات
-            </h2>
-            <p className="[font-family:'Ping_AR_+_LT-Regular',Helvetica] font-normal text-[#535861] text-xl text-center leading-[30px] rtl">
-              المهارات الأكثر تعليما للمتدربات
-            </p>
-          </div>
-
-          <div className="relative w-full h-[800px] flex justify-center">
-            <img
-              className="absolute w-[979px] h-[932px]"
-              alt="Skills cloud background"
-              // src="/isolation-mode.svg"
-              src={Skillscloudvisualization}
-            />
-            <img
-              className="absolute w-[830px] h-[774px] mt-24"
-              alt="Skills cloud visualization"
-              // src="/layer-1.svg"
-              src={Skillscloudbackground}
-       
-            />
-          </div>
-        </div>
-      </section>
-
-
     </div>
-
- 
-
   );
 };
 
