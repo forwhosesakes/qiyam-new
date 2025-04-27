@@ -1,5 +1,5 @@
 import { CheckIcon, UploadCloudIcon } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import imageDashed from "../admin+/assets/Image.png";
@@ -171,8 +171,15 @@ const Separator = React.forwardRef<
 Separator.displayName = "Separator";
 
 export const ControlPanel = (): JSX.Element => {
+  const [selectedButton, setSelectedButton] =
+    useState<string>("knowledge-center");
+
+  const handleButtonClick = (buttonName: string) => {
+    setSelectedButton(buttonName);
+  };
+
   return (
-    <div className="flex items-start  relative w-full  h-full mt-[71px]  ">
+    <div className="flex items-start  relative w-full  h-full pt-6">
       <Card className="w-full h-full rounded-2xl border border-[#d0d5dd] ">
         <CardContent className="p-8 flex flex-col gap-4">
           {/* Upload Area */}
@@ -373,23 +380,27 @@ export const ControlPanel = (): JSX.Element => {
           </div>
         </CardContent>
       </Card>
-      <div className="flex flex-col items-center bg-gray-100 ml-6   ">
-        <button className="bg-white text-[#344054] font-bold py-4 px-3 rounded-xl shadow-sm w-64 mb-6">
-          مركز المعرفة
-        </button>
-        <button className="bg-white text-[#344054] font-bold py-4 px-3 rounded-xl shadow-sm w-64 mb-6">
-          أدلة البرنامج
-        </button>
-        <button className="bg-white text-[#344054] font-bold py-4 px-3 rounded-xl shadow-sm w-64 mb-6">
-          أنشطة البرنامج
-        </button>
-        <button className="bg-[#006173] text-white font-bold py-4 px-3 rounded-xl shadow-sm w-64 mb-6">
-          بنك الفرص التطوعية
-        </button>
-        <button className="bg-white text-[#344054] font-bold py-4 px-3 rounded-xl shadow-sm w-64">
-          أدوات التحفيز
-        </button>
-      </div>
+      <section className="flex flex-col items-center bg-gray-100 ml-6">
+        {[
+          { name: "مركز المعرفة", id: "knowledge-center" },
+          { name: "أدلة البرنامج", id: "program-guides" },
+          { name: "أنشطة البرنامج", id: "program-activities" },
+          { name: "بنك الفرص التطوعية", id: "volunteer-bank" },
+          { name: "أدوات التحفيز", id: "motivation-tools" },
+        ].map((button) => (
+          <button
+            key={button.id}
+            onClick={() => handleButtonClick(button.id)}
+            className={`font-bold py-4 px-3 rounded-xl shadow-sm w-64 mb-6 ${
+              selectedButton === button.id
+                ? "bg-[#006173] text-white"
+                : "bg-white text-[#344054]"
+            }`}
+          >
+            {button.name}
+          </button>
+        ))}
+      </section>
     </div>
   );
 };

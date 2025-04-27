@@ -11,11 +11,12 @@ import {
   Title,
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
-import arrowDown from "../../../../assets/images/new-design/chevron-down.png";
-import School from "../supervisor+/assets/school.svg";
-import students from "../supervisor+/assets/students.svg";
+import arrowDown from "../../../assets/images/new-design/chevron-down.png";
+import School from "./assets/school.svg";
+import students from "./assets/students.svg";
 
-import teacher from "../supervisor+/assets/teacher.svg";
+import teacher from "./assets/teacher.svg";
+import { useNavigate } from "@remix-run/react";
 
 ChartJS.register(
   ArcElement,
@@ -31,7 +32,7 @@ ChartJS.register(
 const statsData = [
   {
     id: 1,
-    icon: { School },
+    icon: School,
     iconAlt: "School",
     title: "عدد المدارس",
     value: "52",
@@ -41,22 +42,22 @@ const statsData = [
   },
   {
     id: 2,
-    icon: { teacher },
+    icon: teacher,
     iconAlt: "Teacher",
     title: "عدد المعلمات",
     value: "128",
     max: "200",
-    color: "#30B0C7",
+    color: "#199491",
     percentage: 64,
   },
   {
     id: 3,
-    icon: { students },
+    icon: students,
     iconAlt: "Students",
     title: "عدد الطالبات",
     value: "4321",
     max: "5000",
-    color: "#004E5C",
+    color: "#006173",
     percentage: 86,
   },
 ];
@@ -121,7 +122,7 @@ const reportMetrics = [
     value: "42",
     unit: "Active users",
     title: "القيمة الاقتصادية للمهارات",
-    color: "#006173",
+    color: "#075BC269",
     percentage: 42,
   },
 ];
@@ -150,14 +151,15 @@ const barColors = [
 ];
 
 export const RegionsStatistics = (): JSX.Element => {
+  const navigate = useNavigate();
   const getRadialChartData = (percentage: number, color: string) => ({
     datasets: [
       {
         data: [percentage, 100 - percentage],
-        backgroundColor: [color, "#199491"],
+        backgroundColor: [color, "#F5F5F5"],
         borderWidth: 0,
-        circumference: 270,
-        rotation: 225,
+        circumference: 360,
+        rotation: 200,
       },
     ],
   });
@@ -195,9 +197,8 @@ export const RegionsStatistics = (): JSX.Element => {
         display: false,
       },
     },
-    cutout: "70%",
+    cutout: "55%",
   };
-
   const barChartData = {
     labels: regions.map((region) => region.name),
     datasets: [
@@ -274,32 +275,38 @@ export const RegionsStatistics = (): JSX.Element => {
       },
     },
   };
+
   const tabItems = [
-    { id: "skills", label: "المهارات", active: false },
+    {
+      id: "skills",
+      label: "المهارات",
+      path: "/supervisor/skills",
+      active: false,
+    },
     {
       id: "regions",
       label: "المناطق",
-      path: "/dashboard/supervisor/regionStatistics",
+      path: "/supervisor/regionsStatistics",
       active: false,
-      hasIndicator: true,
     },
     {
       id: "statistics",
       label: "الإحصاءات",
-      path: "/dashboard/supervisor/programStatistics",
+      path: "/supervisor/programStatics",
+      hasIndicator: true,
       active: false,
     },
     {
       id: "trainer-statistics",
       label: "إحصاءات المدربة",
-      path: "/dashboard/supervisor/supervisorStatistics",
+      path: "/supervisor/supervisorStatics",
       active: false,
     },
   ];
   return (
-    <main className="flex flex-col w-full max-w-[1216px] mx-auto gap-9">
-      <div className="  py-6  w-full">
-        <div className="w-full  mx-auto p-6  rounded-xl  [direction:rtl]">
+    <main className="flex flex-col w-11/12 mx-auto gap-9">
+      <div className="py-6 w-full">
+        <div className="w-full  mx-auto py-6  rounded-xl  [direction:rtl]">
           {/* Header Section */}
           <div className="flex flex-col items-start mb-6  pb-4">
             <h1 className="text-2xl font-bold text-gray-800 mb-2">
@@ -316,6 +323,9 @@ export const RegionsStatistics = (): JSX.Element => {
               {tabItems.map((tab, index) => (
                 <button
                   key={tab.id}
+                  onClick={() => {
+                    navigate(tab.path);
+                  }}
                   className={`min-h-10 px-4 py-2 border-r ${
                     tab.active ? "bg-neutral-50" : "bg-white"
                   } [direction:rtl] ${!tab.active ? "z-[1]" : "z-[-5]"} 
@@ -338,13 +348,13 @@ export const RegionsStatistics = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-6 [direction:rtl] md:flex-row   mt-[76px]">
+        <div className="flex flex-col items-baseline gap-6 [direction:rtl] md:flex-row   mt-[76px]">
           {/* المنطقة (Area) */}
-          <div className="flex flex-col w-80">
+          <div className="flex flex-col w-1/3">
             <div className="mb-2 text-start text-sm text-gray-500">المنطقة</div>
             <div className="relative">
               <select className="appearance-none bg-white border border-gray-200 text-[#717680] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
-                <option>الكل</option>
+                <option className=" ">الكل</option>
               </select>
               <img
                 src={arrowDown}
@@ -355,13 +365,13 @@ export const RegionsStatistics = (): JSX.Element => {
           </div>
 
           {/* إدارة التعليم (Education Management) */}
-          <div className="flex flex-col w-80">
+          <div className="flex flex-col  w-1/3">
             <div className="mb-2 text-start text-sm text-gray-500">
               إدارة التعليم
             </div>
             <div className="relative">
               <select className="appearance-none bg-white border border-gray-200 text-[#717680] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
-                <option>الكل</option>
+                <option className="">الكل</option>
               </select>
               <img
                 src={arrowDown}
@@ -372,11 +382,11 @@ export const RegionsStatistics = (): JSX.Element => {
           </div>
 
           {/* المدرسة (School) */}
-          <div className="flex flex-col w-80">
+          <div className="flex flex-col w-1/3">
             <div className="mb-2 text-start text-sm text-gray-500">المدرسة</div>
             <div className="relative">
               <select className="appearance-none bg-white border border-gray-200 text-[#717680] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
-                <option>الكل</option>
+                <option className="">الكل</option>
               </select>
               <img
                 src={arrowDown}
@@ -389,35 +399,13 @@ export const RegionsStatistics = (): JSX.Element => {
       </div>
 
       {/* Stats Section */}
-      <div className="flex items-center gap-[27px] relative self-stretch w-full flex-[0_0_auto]">
+      <div className="flex items-center gap-[27px] relative self-stretch w-full flex-[0_0_auto] [direction:rtl]">
         {statsData.map((stat) => (
           <div
             key={stat.id}
-            className="flex h-[142px] items-center justify-center gap-6 p-6 relative flex-1 grow bg-white rounded-xl border border-solid border-[#e9e9eb] shadow-shadows-shadow-xs"
+            className="flex h-[142px] items-center justify-center gap-6 p-6 relative flex-1 grow bg-white rounded-xl border border-solid border-[#e9e9eb] shadow-shadows-shadow-xs "
           >
-            <div className="flex items-center justify-center gap-6 p-0 w-full">
-              <img
-                className="relative w-[54px] h-[54px]"
-                alt={stat.iconAlt}
-                // src={stat.icon}
-                // src={stat.icon}
-                src={stat.color}
-              />
-
-              <div className="flex flex-col items-end gap-6 relative flex-1 grow">
-                <div className="self-stretch mt-[-1.00px]  font-bold text-base leading-6 relative text-[#181d27] tracking-[0] [direction:rtl]">
-                  {stat.title}
-                </div>
-
-                <div className="flex flex-col items-start gap-2 relative self-stretch w-full flex-[0_0_auto]">
-                  <div className="flex items-end gap-4 relative self-stretch w-full flex-[0_0_auto]">
-                    <div className="relative flex-1 mt-[-1.00px]  font-bold text-[#181d27] text-5xl text-right tracking-[0] leading-[38px]">
-                      {stat.value}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+            <div className="flex items-center justify-center gap-6 p-0 w-full  ">
               <div className="relative w-[120px] h-[120px]">
                 <Doughnut
                   data={getRadialChartData(stat.percentage, stat.color)}
@@ -429,6 +417,26 @@ export const RegionsStatistics = (): JSX.Element => {
                   </div>
                 </div>
               </div>
+
+              <div className="flex flex-col items-end gap-6 relative flex-1 grow [direction:rtl]">
+                <div className="self-stretch mt-[-1.00px]  font-bold text-base leading-6 relative text-[#181d27] tracking-[0] [direction:rtl]">
+                  {stat.title}
+                </div>
+
+                <div className="flex flex-col items-start gap-2 relative self-stretch w-full flex-[0_0_auto]">
+                  <div className="flex items-end gap-4 relative self-stretch w-full flex-[0_0_auto]">
+                    <div className="relative flex-1 mt-[-1.00px] font-bold text-[#181d27] text-5xl text-right tracking-[0] leading-[38px]">
+                      {stat.value}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <img
+                className="relative w-[54px] h-[54px]"
+                alt={stat.iconAlt}
+                src={stat.icon}
+              />
             </div>
           </div>
         ))}
@@ -436,11 +444,11 @@ export const RegionsStatistics = (): JSX.Element => {
 
       <div className="flex flex-row items-start justify-end gap-9">
         {/* Education Departments Card */}
-        <div className="flex flex-col w-[350px] gap-6">
+        <div className="flex flex-col w-1/3 gap-6">
           <div className="flex flex-col items-start gap-5 w-full">
             <div className="flex items-start gap-4 w-full">
               <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
-                <h2 className="self-stretch  font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
+                <h2 className="self-stretch font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
                   إدارات التعليم
                 </h2>
               </div>
@@ -457,7 +465,7 @@ export const RegionsStatistics = (): JSX.Element => {
                     </div>
 
                     <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
-                      <div className="self-stretch  font-bold text-[#181d27] text-base leading-6 tracking-[0] [direction:rtl]">
+                      <div className="self-stretch font-bold text-[#181d27] text-base leading-6 tracking-[0] [direction:rtl]">
                         إدارات التعليم
                       </div>
                     </div>
@@ -496,12 +504,12 @@ export const RegionsStatistics = (): JSX.Element => {
         </div>
 
         {/* Reports Section */}
-        <div className="flex flex-col w-[829px] items-start gap-6">
+        <div className="flex flex-col w-2/3 items-start gap-6">
           <div className="flex flex-col items-start gap-5 w-full">
             <div className="flex items-start gap-4 w-full">
               <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
-                <h2 className="self-stretch  font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
-                  التقارير
+                <h2 className="self-stretch font-bold text-[#181d27] text-lg tracking-[0] leading-7 [direction:rtl]">
+                  الإجمالي
                 </h2>
               </div>
             </div>
@@ -509,7 +517,7 @@ export const RegionsStatistics = (): JSX.Element => {
 
           <div className="w-full border-[#e9eaeb] bg-white rounded-xl">
             <div className="p-6 flex items-center justify-end gap-16">
-              <div className="flex flex-wrap w-[774px] items-center justify-end gap-[16px_42px]">
+              <div className="flex flex-wrap w-[774px] items-center justify-evenly gap-[22px]">
                 {reportMetrics.map((metric, index) => (
                   <div
                     key={index}
@@ -545,7 +553,7 @@ export const RegionsStatistics = (): JSX.Element => {
 
       {/* Regions Section */}
       <section className="flex flex-col gap-6 w-full">
-      <div className="flex flex-col gap-5 w-full">
+        <div className="flex flex-col gap-5 w-full">
           <div className="flex items-start gap-4 w-full h-full">
             <div className="flex flex-col gap-5 w-full">
               <div className="flex items-center w-full">
@@ -554,7 +562,7 @@ export const RegionsStatistics = (): JSX.Element => {
                 <div className="flex rounded-lg border border-[#d5d6d9] overflow-hidden">
                   {" "}
                   {/* Added overflow-hidden */}
-                  <button className="px-4 py-2 border-r border-[#d5d6d9] bg-white hover:bg-neutral-50 transition-colors [direction:rtl]">
+                  <button className="px-4 py-2 border-r rounded-l-lg border-[#d5d6d9] bg-white hover:bg-neutral-50 transition-colors [direction:rtl]">
                     <span className="font-bold text-[#414651] text-sm">
                       المدارس
                     </span>

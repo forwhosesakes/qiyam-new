@@ -8,6 +8,7 @@ import column1 from "../supervisor+/assets/column-1.svg";
 import Skillscloudbackground from "../supervisor+/assets/layer-1.svg";
 import Skillscloudvisualization from "../supervisor+/assets/isolation-mode.svg";
 import rectangle22099 from "../supervisor+/assets/rectangle-22099.svg";
+import { useNavigate } from "@remix-run/react";
 
 // Utility function
 const cn = (...inputs: any[]) => {
@@ -122,35 +123,36 @@ export const Skills = (): JSX.Element => {
     {
       id: "skills",
       label: "المهارات",
-      path: "/dashboard/supervisor/skills",
+      path: "/supervisor/skills",
       active: false,
       hasIndicator: true,
     },
     {
       id: "regions",
       label: "المناطق",
-      path: "/dashboard/supervisor/regionsStatistics",
+      path: "/supervisor/regionsStatistics",
       active: false,
     },
     {
       id: "statistics",
       label: "الإحصاءات",
-      path: "/dashboard/supervisor/programStatics",
+      path: "/supervisor/programStatics",
       active: false,
     },
     {
       id: "trainer-statistics",
       label: "إحصاءات المدربة",
-      path: "/dashboard/supervisor/supervisorStatics",
+      path: "/supervisor/supervisorStatics",
       active: false,
     },
   ];
+  const navigate = useNavigate(); // Initialize navigate
 
   return (
     <div>
-      <div>
+      <div className="w-11/12 m-auto">
         {/* Full-width rectangle with 40px height */}
-        <img alt="Rectangle" src={rectangle22099} />
+        {/* <img alt="Rectangle" src={rectangle22099} /> */}
 
         {/* Container Section */}
         <div className="flex flex-col w-full items-end   -mt-[10px]">
@@ -193,11 +195,12 @@ export const Skills = (): JSX.Element => {
                   {tabItems.map((tab, index) => (
                     <button
                       key={tab.id}
+                      onClick={() => navigate(tab.path)} // Navigate to the path on click
                       className={`min-h-10 px-4 py-2 border-r ${
                         tab.active ? "bg-neutral-50" : "bg-white"
                       } [direction:rtl] ${!tab.active ? "z-[1]" : "z-[-5]"} 
-          ${index === 0 ? "rounded-r-lg" : ""} 
-          ${index === tabItems.length - 1 ? "rounded-l-lg" : ""}`}
+                ${index === 0 ? "rounded-r-lg" : ""} 
+                ${index === tabItems.length - 1 ? "rounded-l-lg" : ""}`}
                     >
                       <div className="flex items-center flex-row-reverse">
                         {tab.hasIndicator && (
@@ -275,7 +278,7 @@ export const Skills = (): JSX.Element => {
             </p>
           </div>
 
-          <div className="relative w-full h-[800px] flex justify-center">
+          <div className="relative w-full h-[900px] flex justify-center">
             <img
               className="absolute w-[979px] h-[932px]"
               alt="Skills cloud background"
