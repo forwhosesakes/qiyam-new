@@ -12,6 +12,7 @@ export const HorizontalTabs = (): JSX.Element => {
     { id: "settings", label: "إعدادات النظام" },
     { id: "admins", label: "المشرفين" },
     { id: "users", label: "الأعضاء" },
+    { id: "controlpanel", label: "لوحة التحكم" },
   ];
 
   return (

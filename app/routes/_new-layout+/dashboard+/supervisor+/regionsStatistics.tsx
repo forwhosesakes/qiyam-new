@@ -56,7 +56,7 @@ const statsData = [
     title: "عدد الطالبات",
     value: "4321",
     max: "5000",
-    color: "#AF52DE",
+    color: "#004E5C",
     percentage: 86,
   },
 ];
@@ -545,28 +545,37 @@ export const RegionsStatistics = (): JSX.Element => {
 
       {/* Regions Section */}
       <section className="flex flex-col gap-6 w-full">
-        <div className="flex flex-col gap-5 w-full">
-          <div className="flex items-start gap-4 w-full">
-            <div className="w-[287px] bg-white rounded-lg border border-solid border-[#d5d6d9]">
-              <div className="flex">
-                <button className="flex-1 min-h-10 px-4 py-2 border-r border-[#d5d6d9] bg-white [direction:rtl]">
-                  <span className=" font-bold text-[#414651] text-sm">
-                    المدارس
-                  </span>
-                </button>
-                <button className="flex-1 min-h-10 px-4 py-2 border-r border-[#d5d6d9] bg-white [direction:rtl]">
-                  <span className=" font-bold text-[#414651] text-sm">
-                    الإدارات
-                  </span>
-                </button>
-                <button className="flex-1 min-h-10 px-4 py-2 border-r border-[#d5d6d9] bg-neutral-50 [direction:rtl]">
-                  <div className="flex items-center">
-                    <span className=" font-bold text-[#414651] text-sm">
+      <div className="flex flex-col gap-5 w-full">
+          <div className="flex items-start gap-4 w-full h-full">
+            <div className="flex flex-col gap-5 w-full">
+              <div className="flex items-center w-full">
+                {" "}
+                {/* Changed to items-center for vertical alignment */}
+                <div className="flex rounded-lg border border-[#d5d6d9] overflow-hidden">
+                  {" "}
+                  {/* Added overflow-hidden */}
+                  <button className="px-4 py-2 border-r border-[#d5d6d9] bg-white hover:bg-neutral-50 transition-colors [direction:rtl]">
+                    <span className="font-bold text-[#414651] text-sm">
+                      المدارس
+                    </span>
+                  </button>
+                  <button className="px-4 py-2 border-r border-[#d5d6d9] bg-white hover:bg-neutral-50 transition-colors [direction:rtl]">
+                    <span className="font-bold text-[#414651] text-sm">
+                      الإدارات
+                    </span>
+                  </button>
+                  <button className="px-4 py-2 bg-neutral-50 [direction:rtl] flex items-center justify-center gap-2">
+                    {" "}
+                    {/* Removed border-right from last button */}
+                    <span className="font-bold text-[#414651] text-sm">
                       المناطق
                     </span>
-                    <div className="relative w-2 h-2 mr-1 bg-[#17b169] rounded" />
-                  </div>
-                </button>
+                    <div className="relative w-2.5 h-2.5 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-[#17b169] rounded-full" />{" "}
+                      {/* Simplified green dot */}
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
 
