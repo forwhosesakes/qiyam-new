@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import { DownloadCloudIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import image from "../../../assets/images/new-design/image-1.png";
-import pdfImg from "../../../assets/images/new-design/Filetypeicon.png";
-import image2 from "../../../assets/images/new-design/image.png";
-import ArrowLeft from "../../../assets/images/new-design/arrow-right-02.png";
+import image from "../../../../assets/images/new-design/image-1.png";
+import pdfImg from "../../../../assets/images/new-design/Filetypeicon.png";
+import image2 from "../../../../assets/images/new-design/image.png";
+import ArrowLeft from "../../../../assets/images/new-design/arrow-right-02.png";
 import { useNavigate } from "@remix-run/react";
 
 // Utility function
@@ -274,35 +274,7 @@ const NCFiles = () => {
   ];
 
   return (
-    <Card className="flex flex-col w-full max-w-[1216px] gap-8 p-4 bg-white rounded-2xl mt-[82px] mb-[265.5px]">
-      <Tabs defaultValue="knowledge-center" dir="rtl" className="w-full">
-        <TabsList className="flex items-center justify-center gap-1 p-1.5 w-full bg-neutral-50 rounded-xl border border-solid border-[#e9e9eb]">
-          {sections.map((section) => (
-            <TabsTrigger
-              key={section.id}
-              value={section.id}
-              className={`flex h-8 items-center justify-center gap-2 flex-1 rounded-md ${
-                section.id === "knowledge-center"
-                  ? "bg-white shadow-shadows-shadow-sm text-[#414651]"
-                  : "bg-transparent text-[#717680]"
-              }`}
-              onClick={() => handleTabClick(section.ref)}
-            >
-              {section.badge && (
-                <Badge className="px-2.5 py-0.5 bg-neutral-50 rounded-full border border-solid border-[#e9e9eb]">
-                  <span className="font-text-sm-medium font-[number:var(--text-sm-medium-font-weight)] text-[#414651] text-[length:var(--text-sm-medium-font-size)] tracking-[var(--text-sm-medium-letter-spacing)] leading-[var(--text-sm-medium-line-height)]">
-                    {section.badge}
-                  </span>
-                </Badge>
-              )}
-              <span className="font-bold text-base tracking-[0] leading-6 whitespace-nowrap [direction:rtl]">
-                {section.label}
-              </span>
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
-
+    <Card className="flex flex-col w-full max-w-[1216px] gap-8 p-4 bg-white mt-[20px] rounded-2xl mb-[265.5px]">
       <div className="flex flex-col gap-12 w-full">
         {sections.map(
           (section) =>

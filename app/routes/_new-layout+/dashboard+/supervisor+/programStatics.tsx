@@ -297,7 +297,7 @@ export const RegionsStatistics = (): JSX.Element => {
   ];
   return (
     <main className="flex flex-col w-full max-w-[1216px] mx-auto gap-9">
-      <div className="  py-6 px-8 w-full">
+      <div className="py-6 w-full">
         <div className="w-full  mx-auto p-6  rounded-xl  [direction:rtl]">
           {/* Header Section */}
           <div className="flex flex-col items-start mb-6  pb-4">
@@ -339,7 +339,7 @@ export const RegionsStatistics = (): JSX.Element => {
 
         <div className="flex flex-col items-baseline gap-6 [direction:rtl] md:flex-row   mt-[76px]">
           {/* المنطقة (Area) */}
-          <div className="flex flex-col w-[350px]">
+          <div className="flex flex-col w-1/3">
             <div className="mb-2 text-start text-sm text-gray-500">المنطقة</div>
             <div className="relative">
               <select className="appearance-none bg-white border border-gray-200 text-[#717680] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
@@ -354,7 +354,7 @@ export const RegionsStatistics = (): JSX.Element => {
           </div>
 
           {/* إدارة التعليم (Education Management) */}
-          <div className="flex flex-col  w-[350px]">
+          <div className="flex flex-col  w-1/3">
             <div className="mb-2 text-start text-sm text-gray-500">
               إدارة التعليم
             </div>
@@ -371,7 +371,7 @@ export const RegionsStatistics = (): JSX.Element => {
           </div>
 
           {/* المدرسة (School) */}
-          <div className="flex flex-col w-[350px]">
+          <div className="flex flex-col w-1/3">
             <div className="mb-2 text-start text-sm text-gray-500">المدرسة</div>
             <div className="relative">
               <select className="appearance-none bg-white border border-gray-200 text-[#717680] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10">
@@ -433,7 +433,7 @@ export const RegionsStatistics = (): JSX.Element => {
 
       <div className="flex flex-row items-start justify-end gap-9">
         {/* Education Departments Card */}
-        <div className="flex flex-col w-[350px] gap-6">
+        <div className="flex flex-col w-1/3 gap-6">
           <div className="flex flex-col items-start gap-5 w-full">
             <div className="flex items-start gap-4 w-full">
               <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
@@ -493,7 +493,7 @@ export const RegionsStatistics = (): JSX.Element => {
         </div>
 
         {/* Reports Section */}
-        <div className="flex flex-col w-[829px] items-start gap-6">
+        <div className="flex flex-col w-2/3 items-start gap-6">
           <div className="flex flex-col items-start gap-5 w-full">
             <div className="flex items-start gap-4 w-full">
               <div className="flex flex-col items-end justify-center gap-0.5 flex-1">
@@ -506,7 +506,7 @@ export const RegionsStatistics = (): JSX.Element => {
 
           <div className="w-full border-[#e9eaeb] bg-white rounded-xl">
             <div className="p-6 flex items-center justify-end gap-16">
-              <div className="flex flex-wrap w-[774px] items-center justify-end gap-[16px_42px]">
+              <div className="flex flex-wrap w-[774px] items-center justify-evenly gap-[22px]">
                 {reportMetrics.map((metric, index) => (
                   <div
                     key={index}

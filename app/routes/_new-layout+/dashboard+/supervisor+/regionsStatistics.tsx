@@ -298,7 +298,7 @@ export const RegionsStatistics = (): JSX.Element => {
   ];
   return (
     <main className="flex flex-col w-full max-w-[1216px] mx-auto gap-9">
-      <div className="  py-6 px-8 w-full">
+      <div className="  py-6  w-full">
         <div className="w-full  mx-auto p-6  rounded-xl  [direction:rtl]">
           {/* Header Section */}
           <div className="flex flex-col items-start mb-6  pb-4">

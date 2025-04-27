@@ -31,21 +31,16 @@ export default function dashboardNav() {
   const AuthActions = () =>
     user ? (
       <div className="flex items-center gap-4 flex-row ">
-
         <div className="flex items-start gap-1  [direction:rtl] ">
-        <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
-          <SearchIcon className="w-5 h-5" />
-        </button>
-        <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
+          <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
+            <SearchIcon className="w-5 h-5" />
+          </button>
+          <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
             <SettingsIcon className="w-5 h-5" />
           </button>
           <button className="flex w-10 items-center justify-center p-2 rounded-md overflow-hidden">
             <BellIcon className="w-5 h-5" />
           </button>
-      
-      
-
-  
         </div>
 
         <div className="flex flex-col items-start">
@@ -76,39 +71,38 @@ export default function dashboardNav() {
   // Navigation menu items data
   const menuItems = [
     { id: 7, label: "تواصل معنا", hasDropdown: true },
+    { id: 6, label: "المسارات", path: "/#paths", hasDropdown: true },
     {
-      id: 6,
-      label: "مركز المعرفة",
-      path: "/dashboard/infoCenter",
-      hasDropdown: true,
-    },
-    { id: 5, label: "المسارات", path: "/#paths", hasDropdown: true },
-    {
-      id: 4,
+      id: 5,
       label: "أهداف البرنامج",
       path: "/#goals",
       hasDropdown: true,
     },
     {
-      id: 3,
-      label: "حسابي",
-      path: "/dashboard/trainer/trainerProfile",
-      hasDropdown: true,
-    },
-    {
-      id: 2,
+      id: 4,
       label: "يانعة",
       path: "/#about",
       hasDropdown: true,
     },
-
+    {
+      id: 3,
+      label: "مركز المعرفة",
+      path: "/dashboard/infoCenter",
+      hasDropdown: false,
+    },
+    {
+      id: 2,
+      label: "حسابي",
+      path: "/dashboard/trainer/trainerProfile",
+      hasDropdown: false,
+    },
     { id: 1, label: "الرئيسة", path: "/", hasDropdown: false },
   ];
 
   return (
     <header
       className="w-full flex justify-center bg-white border-b border-[#e9e9eb] fixed top-0 left-0 right-0 z-50   "
-    dir="rtl"
+      dir="rtl"
     >
       <div className="max-w-screen-xl h-[72px] items-center justify-between w-full flex px-8 py-0 ">
         {/* Right side - Navigation and logo */}

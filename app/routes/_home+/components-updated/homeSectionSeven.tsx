@@ -108,14 +108,14 @@ export const HomeSectionSeven = (): JSX.Element => {
     return (
       <div className="relative w-10 h-10 bg-neutral-50 rounded-full overflow-hidden">
         <div className="h-10 rounded-[20px] border-2 border-solid border-[#e9e9eb]">
-          <div className="relative w-3 h-3 top-3.5 left-3.5 bg-[#d5d6d9] rounded-md" />
+          <div className="relative w-3 h-3 top-[12.4px] left-[12.4px] bg-[#d5d6d9] rounded-md" />
         </div>
       </div>
     );
   };
 
   return (
-    <div className="relative w-full max-w-[1280px] h-[434px] m-auto mt-[110px]   mb-[235.5px] " >
+    <div className="relative w-full max-w-[1280px] h-[434px] m-auto mt-[110px]   mb-[235.5px] ">
       <div className="w-full h-[434px]">
         <div className="flex flex-col max-w-screen-xl w-full items-start gap-8 px-8 py-0">
           <div className="flex flex-col items-center gap-12 relative self-stretch w-full">
@@ -238,7 +238,7 @@ export const HomeSectionSeven = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="inline-flex flex-col items-center gap-1 pt-0 pb-1 px-0 relative self-stretch flex-[0_0_auto]">
+            <div className="inline-flex flex-col items-center gap-1 pt-0 px-0 relative self-stretch flex-[0_0_auto]">
               <StepIndicator isActive={false} isCompleted={false} />
             </div>
           </div>
@@ -257,7 +257,7 @@ export const HomeSectionSeven = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="inline-flex flex-col items-center gap-1 pt-0 pb-1 px-0 relative self-stretch flex-[0_0_auto]">
+          <div className="inline-flex flex-col items-center gap-1 pt-0 px-0 relative self-stretch flex-[0_0_auto]">
             <StepIndicator isActive={false} isCompleted={false} />
           </div>
         </div>

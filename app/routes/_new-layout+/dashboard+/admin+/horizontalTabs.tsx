@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
+import { useNavigate } from "@remix-run/react";
 
 export const HorizontalTabs = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState("members");
+  const navigate = useNavigate();
 
   const tabItems = [
-    { id: "dashboard", label: "لوحة التحكم" },
-    { id: "knowledge", label: "مركز المعرفة" },
+    // { id: "dashboard", label: "لوحة التحكم" },
+    { id: "infoCenter", label: "مركز المعرفة" },
     { id: "settings", label: "إعدادات النظام" },
     { id: "admins", label: "المشرفين" },
-    { id: "members", label: "الأعضاء" },
+    { id: "users", label: "الأعضاء" },
   ];
 
   return (
@@ -23,6 +25,10 @@ export const HorizontalTabs = (): JSX.Element => {
           <TabsTrigger
             key={tab.id}
             value={tab.id}
+            onClick={() => {
+              setActiveTab(tab.id);
+              navigate(`/dashboard/admin/${tab.id}`);
+            }}
             className={`flex-1 h-11 rounded-md [direction:rtl]   font-bold text-base leading-6 ${
               activeTab === tab.id
                 ? "bg-[#68c35c] text-white shadow-shadows-shadow-sm"

@@ -6,8 +6,7 @@ import {
   CardContent,
 } from "~/routes/_auth+/new-design/components/ui/card";
 import { Input } from "~/routes/_auth+/new-design/components/ui/input";
-import plusImg from "./assets/plus.svg"
-
+import plusImg from "./assets/plus.svg";
 
 const ManageData = () => {
   // State for sections and inputs
@@ -95,8 +94,7 @@ const ManageData = () => {
               className="w-full flex flex-col items-center justify-center gap-6 p-4 bg-white rounded-xl border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs"
             >
               <div className="flex w-full h-14 items-center justify-center gap-3 p-5 bg-[#006173] rounded-xl shadow-shadows-shadow-xs">
- 
-              <div className="flex gap-2">
+                <div className="flex gap-2">
                   <Button
                     variant="outline"
                     className="flex w-[120px] items-center justify-center gap-1 px-3 py-2 mt-[-10px] mb-[-10px] bg-white rounded-lg border border-solid border-[#d5d6d9] shadow-shadows-shadow-xs-skeuomorphic"
@@ -118,7 +116,6 @@ const ManageData = () => {
                     onClick={() => handleAddInput(section.id)} // Add input to the current section
                   >
                     <div className="inline-flex items-center justify-center px-0.5 py-0 relative">
-                  
                       <div className="relative w-fit mt-[-1px]  mr-2  font-bold text-[#414651] text-sm text-left tracking-[0] leading-5 whitespace-nowrap [direction:rtl]">
                         إضافة
                       </div>
@@ -136,7 +133,6 @@ const ManageData = () => {
                     {section.icon}
                   </div>
                 </div>
-       
               </div>
 
               <CardContent className="p-0 w-full">

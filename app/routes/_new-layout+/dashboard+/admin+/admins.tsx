@@ -238,7 +238,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn( className)} {...props} />
+  <thead ref={ref} className={cn(className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -258,14 +258,7 @@ const TableRow = React.forwardRef<
   HTMLTableRowElement,
   React.HTMLAttributes<HTMLTableRowElement>
 >(({ className, ...props }, ref) => (
-  <tr
-    ref={ref}
-    className={cn(
-      " ",
-      className
-    )}
-    {...props}
-  />
+  <tr ref={ref} className={cn(" ", className)} {...props} />
 ));
 TableRow.displayName = "TableRow";
 
@@ -275,10 +268,7 @@ const TableHead = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <th
     ref={ref}
-    className={cn(
-      "h-10 px-2 text-left align-middle font-medium ",
-      className
-    )}
+    className={cn("h-10 px-2 text-left align-middle font-medium ", className)}
     {...props}
   />
 ));
@@ -288,14 +278,7 @@ const TableCell = React.forwardRef<
   HTMLTableCellElement,
   React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
-  <td
-    ref={ref}
-    className={cn(
-      "p-2 align-middle ",
-      className
-    )}
-    {...props}
-  />
+  <td ref={ref} className={cn("p-2 align-middle ", className)} {...props} />
 ));
 TableCell.displayName = "TableCell";
 
@@ -303,20 +286,20 @@ TableCell.displayName = "TableCell";
 const metricsData = [
   {
     id: 1,
-    title: "عدد المتدربات",
-    value: "5000",
+    title: "عدد الإداريين",
+    value: "50",
     icon: <UserIcon className="h-5 w-5" />,
   },
   {
     id: 2,
     title: "عدد المشرفين",
-    value: "4",
+    value: "10",
     icon: <UserIcon className="h-5 w-5" />,
   },
   {
     id: 3,
-    title: "عدد المدربين",
-    value: "200",
+    title: "عدد الإدارات",
+    value: "15",
     icon: <UserIcon className="h-5 w-5" />,
   },
 ];
@@ -329,14 +312,14 @@ export const Users = (): JSX.Element => {
   const allTableData = Array(100)
     .fill(null)
     .map((_, index) => ({
-      name: `محمد منصور ${index + 1}`,
+      name: `أحمد الإداري ${index + 1}`,
       mobile: "96655186620",
-      email: `Hasf${index + 1}@gmail.com`,
-      account: "مشرف",
+      email: `admin${index + 1}@example.com`,
+      account: "إداري",
       region: "الرياض",
-      department: "الزلفي",
-      school: "خالد بن الوليد",
-      status: "مقبول",
+      department: "الإدارة العامة",
+      school: "غير متوفر",
+      status: "نشط",
       isChecked: index === 0,
     }));
 
@@ -357,7 +340,7 @@ export const Users = (): JSX.Element => {
   ];
 
   // SearchIcon tags data
-  const searchTags = Array(3).fill({ label: 'label' });
+  const searchTags = Array(3).fill({ label: "label" });
 
   return (
     <div className="w-full max-w-[1216px] mx-auto py-6">
@@ -390,8 +373,6 @@ export const Users = (): JSX.Element => {
 
           {/* Main Content Section */}
           <section className="flex flex-col w-full mt-20 ">
-
-
             <div className="relative w-full  ">
               {/* Top controls */}
               <div className="flex justify-between items-center mb-6 [direction:rtl]  ">
@@ -421,8 +402,6 @@ export const Users = (): JSX.Element => {
                     />
                     رفض
                   </Button>
-
-               
                 </div>
 
                 <div className="w-full max-w-[544px]">
@@ -430,9 +409,7 @@ export const Users = (): JSX.Element => {
                     <div className="flex items-center gap-2 px-3.5 py-2.5 bg-white rounded-lg border border-solid border-[#cfd4dc] shadow-shadow-xs">
                       <div className="flex items-center  gap-2 flex-1">
                         <SearchIcon className="w-5 h-5 text-[#475467] " />
-                        <span className="text-gray-500 text-base  ">
-                        بحث 
-                        </span>
+                        <span className="text-gray-500 text-base  ">بحث</span>
                       </div>
 
                       <div className="flex gap-2">
@@ -451,20 +428,19 @@ export const Users = (): JSX.Element => {
                 </div>
               </div>
               <img
-              className="w-full h-px object-cover mt-6 mb-3"
-              alt="Divider"
-              src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/vector-9.svg"
-            />
+                className="w-full h-px object-cover mt-6 mb-3"
+                alt="Divider"
+                src="https://c.animaapp.com/m9qfyf0iFAAeZK/img/vector-9.svg"
+              />
               {/* Table */}
               <div className="w-full">
                 <Table>
                   <TableHeader>
                     <TableRow className="mb-4 border-[#e4e7ec]  ">
-                      
                       {/* <TableHead className="text-right pr-2">
                         <span className="sr-only">Select</span>
                       </TableHead> */}
-                      
+
                       <TableHead className="text-center   font-medium text-gray-700 text-[15px] ">
                         الإجراء
                       </TableHead>
@@ -492,7 +468,6 @@ export const Users = (): JSX.Element => {
                       <TableHead className="text-right [direction:rtl] font-medium text-gray-700 text-[15px]">
                         الاسم
                       </TableHead>
-                      
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -501,7 +476,6 @@ export const Users = (): JSX.Element => {
                         key={index}
                         className="border-b border-[#e4e7ec] "
                       >
-                
                         <TableCell className="py-1 px-2 mt-4">
                           <div className="flex items-center gap-3.5">
                             {actionBadges.map((badge, badgeIndex) => (

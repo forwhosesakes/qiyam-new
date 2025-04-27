@@ -39,12 +39,8 @@ const paragraphs = [
 
 export const Section2 = (): JSX.Element => {
   return (
-    <Card className="flex flex-col w-full   items-end gap-[42px] p-4 rounded-3xl shadow-shadows-shadow-md mt-[132.5px] mb-[505.5px]">
-      <img
-        className="w-full h-auto object-cover"
-        alt="Image"
-        src={cardImg}
-      />
+    <Card className="flex flex-col w-full   items-end gap-[42px] p-4 rounded-3xl shadow-shadows-shadow-md mb-[505.5px]">
+      <img className="w-full h-auto object-cover" alt="Image" src={cardImg} />
 
       <CardContent className="flex flex-col items-end justify-center gap-6 w-full p-0">
         <h1 className="  font-bold text-[32px] leading-7 [direction:rtl] w-full text-[#1f2a37] tracking-[0] ">
@@ -59,15 +55,15 @@ export const Section2 = (): JSX.Element => {
             >
               {index >= paragraphs.length - 5 ? (
                 <>
-                  <span 
+                  <span
                     style={{
-                      display: 'inline-block',
-                      width: '10px',
-                      height: '10px',
-                      backgroundColor: '#1f2a37',
-                      borderRadius: '50%',
-                      marginLeft: '10px',
-                      marginRight: '10px'
+                      display: "inline-block",
+                      width: "10px",
+                      height: "10px",
+                      backgroundColor: "#1f2a37",
+                      borderRadius: "50%",
+                      marginLeft: "10px",
+                      marginRight: "10px",
                     }}
                   />
                   {paragraph}
@@ -81,7 +77,6 @@ export const Section2 = (): JSX.Element => {
       </CardContent>
     </Card>
   );
-
 };
 
 export default Section2;

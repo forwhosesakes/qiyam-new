@@ -27,7 +27,7 @@ export const NavFeaturedCard = (): JSX.Element => {
   ];
 
   return (
-    <Card className="w-[286px] rounded-xl border-[#e9e9eb] shadow-shadows-shadow-xs mt-[128px]">
+    <Card className="w-[286px] rounded-xl border-[#e9e9eb] shadow-shadows-shadow-xs">
       <CardContent className="flex flex-col items-start gap-4 p-4">
         <div className="flex flex-col items-start gap-3 self-stretch w-full [direction:rtl]">
           <div className="flex  justify-between gap-1 self-stretch w-full [direction:rtl]">
