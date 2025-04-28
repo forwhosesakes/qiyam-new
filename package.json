@@ -4,7 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "npm run update-sprite && remix vite:build",
+    "build": "npx prisma generate --no-engine && npm run update-sprite && remix vite:build",
     "deploy": "npm run build && wrangler pages deploy",
     "dev": "remix vite:dev",
     "host": "remix vite:dev --host",
