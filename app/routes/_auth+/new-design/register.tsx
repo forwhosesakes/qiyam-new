@@ -11,6 +11,10 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "./components/ui/toggle-group";
 import { useNavigate, useNavigation } from "@remix-run/react";
 import LoadingOverlay from "~/components/loading-overlay";
+import group30525 from "../../../assets/images/new-design/login/group-30525.png";
+import group from "../../../assets/images/new-design/login/group.png";
+import group1 from "../../../assets/images/new-design/login/group-1.png";
+import section from "../../../assets/images/new-design/login/section.png";
 
 export const NewRegister = (): JSX.Element => {
   const navigate = useNavigate();
@@ -24,20 +28,28 @@ export const NewRegister = (): JSX.Element => {
   ];
 
   return (
-    <div className="bg-white flex h-screen w-full " dir="rtl">
-      <div  className="flex flex-col  w-full h-full    ">
+    <div className="bg-white flex h-screen w-full">
+      <div className="flex w-5/12 relative">
+        <div
+          className="w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${section})`,
+          }}
+        />
+      </div>
+      <div className="flex flex-col w-7/12 h-full">
         {/* Logo section */}
         <div className="absolute w-[110px] h-[70px] top-[62px] left-[1214px]">
           <div className="relative h-[70px]">
             <img
               className="absolute w-[38px] h-[37px] top-0 left-0"
               alt="Group"
-              src="app/assets/images/new-design/login/group.png"
+              src={group}
             />
             <img
               className="absolute w-[77px] h-9 top-[34px] left-[33px]"
               alt="Group"
-              src="app/assets/images/new-design/login/group-1.png"
+              src={group1}
             />
           </div>
         </div>
@@ -47,17 +59,12 @@ export const NewRegister = (): JSX.Element => {
         )}
         <button
           onClick={() => navigate("/")}
-          className="button  font-bold text-center text-xs md:text-sm  md:p-3 rounded-lg text-gray-700 hover:bg-black/5 transition-all absolute w-[50px] h-[50px] top-[61px] left-[676px]"
+          className="button font-bold text-center text-xs md:text-sm md:p-3 rounded-lg text-gray-700 hover:bg-black/5 transition-all absolute w-[50px] h-[50px] top-[61px] left-[676px]"
         >
-          <img
-            className=" w-[26px] h-[26px] "
-            alt="Group"
-            src="app/assets/images/new-design/login/group-30525.png"
-          />
+          <img className="w-[26px] h-[26px]" alt="Group" src={group30525} />
         </button>
 
         {/* Left section background */}
-
 
         {/* Header section */}
         <header className="flex flex-col w-[360px] items-end gap-6 absolute top-[185px] left-[964px] bg-transparent">
@@ -256,13 +263,6 @@ export const NewRegister = (): JSX.Element => {
           تسجيل
         </Button>
       </div>
-      <div   
-         className="w-[805px] h-full bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(app/assets/images/new-design/login/section.png)",
-          }}
-        />
     </div>
   );
 };

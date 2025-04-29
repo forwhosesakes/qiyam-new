@@ -9,6 +9,10 @@ import LoadingOverlay from "~/components/loading-overlay";
 import { authClient } from "../../../lib/auth.client";
 import { toast as showToast } from "sonner";
 import glossary from "../glossary";
+import group30525 from "../../../assets/images/new-design/login/group-30525.png";
+import group from "../../../assets/images/new-design/login/group.png";
+import group1 from "../../../assets/images/new-design/login/group-1.png";
+import section from "../../../assets/images/new-design/login/section.png";
 
 export const NewLogin = (): JSX.Element => {
   const navigate = useNavigate();
@@ -74,6 +78,16 @@ export const NewLogin = (): JSX.Element => {
 
   return (
     <div className="bg-white flex h-screen w-full">
+      <div className="flex w-5/12 relative">
+        {/* Left side background image */}
+        <div
+          className="h-full w-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${section})`,
+          }}
+        />
+      </div>
+
       <div className="flex flex-col w-7/12 h-full items-center justify-center">
         <div className="flex flex-col max-w-[360px] gap-8 w-full items-center">
           <div className="flex flex-col items-end w-full">
@@ -82,11 +96,7 @@ export const NewLogin = (): JSX.Element => {
               onClick={() => navigate("/")}
               className="button font-bold text-center text-xs md:text-sm md:p-3 rounded-lg text-gray-700 hover:bg-black/5 transition-all"
             >
-              <img
-                className="w-[25px] h-[25px]"
-                alt="Group"
-                src="app/assets/images/new-design/login/group-30525.png"
-              />
+              <img className="w-[25px] h-[25px]" alt="Group" src={group30525} />
             </button>
           </div>
           <header className="flex flex-col items-center gap-6 w-full">
@@ -95,12 +105,12 @@ export const NewLogin = (): JSX.Element => {
               <img
                 className="absolute w-[33px] h-8 top-0 left-0"
                 alt="Logo part 1"
-                src="app/assets/images/new-design/login/group.png"
+                src={group}
               />
               <img
                 className="absolute w-[66px] h-[31px] top-[29px] left-7"
                 alt="Logo part 2"
-                src="app/assets/images/new-design/login/group-1.png"
+                src={group1}
               />
             </div>
 
@@ -192,17 +202,6 @@ export const NewLogin = (): JSX.Element => {
             </Card>
           </form>
         </div>
-      </div>
-
-      <div className="flex w-5/12 relative">
-        {/* Left side background image */}
-        <div
-          className="w-[605px] h-full bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('app/assets/images/new-design/login/section.png')",
-          }}
-        />
       </div>
     </div>
   );

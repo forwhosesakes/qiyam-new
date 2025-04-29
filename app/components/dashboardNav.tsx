@@ -70,20 +70,6 @@ export default function dashboardNav() {
     );
   // Navigation menu items data
   const menuItems = [
-    { id: 7, label: "تواصل معنا", hasDropdown: true },
-    { id: 6, label: "المسارات", path: "/#paths", hasDropdown: true },
-    {
-      id: 5,
-      label: "أهداف البرنامج",
-      path: "/#goals",
-      hasDropdown: true,
-    },
-    {
-      id: 4,
-      label: "يانعة",
-      path: "/#about",
-      hasDropdown: true,
-    },
     {
       id: 3,
       label: "مركز المعرفة",
@@ -91,8 +77,20 @@ export default function dashboardNav() {
       hasDropdown: false,
     },
     {
+      id: 4,
+      label: "مدير النظام",
+      path: "/dashboard/admin/users",
+      hasDropdown: false,
+    },
+    {
+      id: 3,
+      label: "المشرف",
+      path: "/supervisor/skills",
+      hasDropdown: false,
+    },
+    {
       id: 2,
-      label: "حسابي",
+      label: "المدربة",
       path: "/dashboard/trainer/trainerProfile",
       hasDropdown: false,
     },
